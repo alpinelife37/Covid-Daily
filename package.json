@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "covid-daily",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "app for people in quarantine",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -14,14 +14,21 @@
     "heroku-postbuild": "npm run build"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "concurrently": "^4.1.2",
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
-    "express": "^4.16.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "if-env": "^1.0.4",
-    "semantic-ui-react": "^0.88.2"
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.11",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.9.0"
   }
 }
