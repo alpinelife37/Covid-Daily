@@ -5,7 +5,6 @@ function CurrentDate() {
 
     function getFullMonth() {
         month = (today.getMonth() + 1);
-        console.log(month);
         if (month < 9)
             return "0" + month;
         else
@@ -14,7 +13,6 @@ function CurrentDate() {
 
     function getFullDay() {
         day = (today.getDate());
-        console.log(day);
         if (day < 9)
             return "0" + day;
         else
@@ -22,7 +20,6 @@ function CurrentDate() {
     }
 
     var date = today.getFullYear() + '-' + (getFullMonth()) + '-' + (getFullDay());
-    console.log(date);
     return date;
 }
 
