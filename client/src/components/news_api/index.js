@@ -17,6 +17,7 @@ function NewsAPI() {
     fetch(req)
         .then(function (response) {
             console.log(response.json());
+            return response.json();
         })
 
 }
