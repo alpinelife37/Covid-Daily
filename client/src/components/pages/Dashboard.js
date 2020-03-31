@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Header, Segment, Image } from "semantic-ui-react";
 import CovidLogo from "../../Covid19Logo.png";
+import News from "../news";
+
 class Dashboard extends Component {
   render() {
     const { user } = this.props.auth;
@@ -16,6 +18,7 @@ class Dashboard extends Component {
           <b>Welcome</b> {user.name}!
         </Header>
         <Image size="medium" centered src={CovidLogo} />
+        <News/>
       </Segment>
     );
   }
