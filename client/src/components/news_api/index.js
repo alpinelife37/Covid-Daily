@@ -1,14 +1,20 @@
-import React, { Component } from "react";
-import CurrentDate from "../date"
+import React, { Component } from 'react';
+import CurrentDate from "../date";
 
 
 function NewsAPI() {
-    
+    const newsArray = [
+        // title: "",
+        // body: "",
+        // imgurl: "",
+        // url: ""
+    ]
+    const date = CurrentDate();
 
     var url = 'http://newsapi.org/v2/top-headlines?' +
         'q=covid-19&' +
         'country=us&' +
-        'from=' + CurrentDate + '&' +
+        'from=' + date + '&' +
         'sortBy=popularity&' +
         'apiKey=0d7e71ff7ddd480b83368a04bb626671';
 
@@ -16,9 +22,15 @@ function NewsAPI() {
 
     fetch(req)
         .then(function (response) {
-            return response.json();
+            response.json().then(data => {
+                // do something with your data
+                console.log(data.articles[0]);
+                const article = data.articles[0];
+                newsArray.push("title:" + "'" + article.title + "'", "body" + "'" + article.content + "'", "url:" + "'" + article.url + "'", "imagesrc:" + "'" + article.urlToImage + "'", "author:" + "'" + article.author + "'");
+                return newsArray;
+            });
         })
-
+    return newsArray;
 }
 
 // Powered by news API

@@ -1,18 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 function CurrentDate() {
     var today = new Date();
+    var month = (today.getMonth() + 1);
 
     function getFullMonth() {
-        month = (today.getMonth() + 1);
+
         if (month < 9)
             return "0" + month;
         else
             return month;
     }
-
+    var day = (today.getDate());
     function getFullDay() {
-        day = (today.getDate());
+
         if (day < 9)
             return "0" + day;
         else
