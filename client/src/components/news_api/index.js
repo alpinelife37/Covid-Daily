@@ -11,7 +11,7 @@ function NewsAPI() {
     ]
     const date = CurrentDate();
 
-    var url = 'http://newsapi.org/v2/top-headlines?' +
+    var url = 'https://newsapi.org/v2/top-headlines?' +
         'q=covid-19&' +
         'country=us&' +
         'from=' + date + '&' +
@@ -27,7 +27,7 @@ function NewsAPI() {
                 console.log(data.articles[0]);
                 const article = data.articles[0];
                 newsArray.push("title:" + "'" + article.title + "'", "body" + "'" + article.content + "'", "url:" + "'" + article.url + "'", "imagesrc:" + "'" + article.urlToImage + "'", "author:" + "'" + article.author + "'");
-                return newsArray;
+                
             });
         })
     return newsArray;
