@@ -1,7 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { Container, Header, Image } from "semantic-ui-react";
 import CurrentDate from "../date";
-import { set } from "mongoose";
 
 
 
@@ -26,6 +25,8 @@ function News() {
         'sortBy=popularity&' +
         'apiKey=0d7e71ff7ddd480b83368a04bb626671';
 
+    // Powered by news API
+    // API key 0d7e71ff7ddd480b83368a04bb626671
     var req = new Request(queryUrl);
 
 
@@ -37,7 +38,7 @@ function News() {
                 response.json().then(data => {
                     // do something with your data
                     console.log(data.articles);
-            
+
                     setTitle(data.articles[0].title);
                     setBody(data.articles[0].description);
                     setAuthor(data.articles[0].author);
@@ -59,17 +60,17 @@ function News() {
         <Container text>
             <Header as='h2'>News Header: {title}</Header>
             <Image
-    src={imgsrc}
-    as='a'
-    size='medium'
-    href={url}
-    target='_blank'
-  />
+                src={imgsrc}
+                as='a'
+                size='medium'
+                href={url}
+                target='_blank'
+            />
             <p>Body Text: {body}</p>
-            <br/> 
+            <br />
             <p> Author: {author}</p>
-            <br/>
-            <p>Powered by news API</p> 
+            <br />
+            <p>Powered by news API</p>
         </Container>
 
     )
