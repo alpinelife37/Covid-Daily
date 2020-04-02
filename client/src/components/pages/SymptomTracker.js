@@ -16,7 +16,7 @@ class SymptomTracker extends Component {
         </Segment>
         <Segment>
           <Container>
-            <Grid columns={2} relaxed='very'>
+            <Grid columns={2} stackable relaxed='very'>
               <Grid.Column >
                 <Header as="h3" textAlign='center'>
                   Mark your symptoms below
@@ -42,12 +42,6 @@ class SymptomTracker extends Component {
                 </p>
                 <p>
                   <Checkbox label='Persistent pain or pressure in the chest' />
-                </p>
-                <p>
-                  <Checkbox label='New confusion or inability to arouse' />
-                </p>
-                <p>
-                  <Checkbox label='Bluish lips or face' />
                 </p>
               </Grid.Column>
 
