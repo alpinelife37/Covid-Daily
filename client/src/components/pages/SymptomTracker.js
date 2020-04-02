@@ -56,8 +56,11 @@ class SymptomTracker extends Component {
                   Recomendations
                 </Header>
                 <Divider/>
+                <Header as="h2" textAlign='center'>
+                  Place holder for QUARANTINE or DANGER
+                </Header>
                 <p>
-
+                  Place holder for recomendations
                 </p>
               </Grid.Column>
             </Grid>
