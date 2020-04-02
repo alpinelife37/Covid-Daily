@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import "./landing.css";
 
 import {
   Segment,
@@ -22,8 +23,8 @@ class Landing extends Component {
   }
   render() {
     return (
-      <Container style={{ marginTop: 100 }}>
-        <Segment textAlign="center">
+      <Container transparent style={{ marginTop: 100, opacity: 0.9}}>
+        <Segment textAlign="center" >
           <Header as="h1" content="Covid Daily" />
           <Header as="h3">
             An app for people under quarantine to track sypmtoms as well as

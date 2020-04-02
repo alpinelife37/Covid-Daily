@@ -1,0 +1,9 @@
+body {
+    background-image: url(./covid.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: fit-content;
+    color: white;
+    
+    
+}
