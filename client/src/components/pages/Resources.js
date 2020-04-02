@@ -8,13 +8,15 @@ class Dashboard extends Component {
   render() {
     return (
       <Container style={{ minHeight: "400px" }}>
-        <Header as="h1" textAlign="center" style={{backgroundColor: "black"}}>
-          <img src={headerImg} style={{height: "180px", width: "350px"}}/>
+        <Header as="h1" textAlign="center">
+          <img src={headerImg} style={{ height: "180px", width: "350px" }} />
         </Header>
-        <Divider/>
+        <Divider />
         <Links />
-        <Divider/>
-        YouTube Video about covid19 here
+        <Divider />
+        <Container textAlign="center">
+          YouTube Video about covid19 here
+        </Container>
       </Container>
     );
   }
