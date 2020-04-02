@@ -1,66 +1,77 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Header, Segment, Container, Checkbox, Grid, Divider } from "semantic-ui-react";
+import { Header, Segment, Checkbox, Grid, Form, Icon } from "semantic-ui-react";
 
 class SymptomTracker extends Component {
   render() {
-    //  const { user } = this.props.auth;  Incase anyone wants to display the users name they can call it by {user.name}
+    //  const { user } = this.props.auth
 
     return (
-      <div>
-        <Segment>
-          <Header as="h1" textAlign="center">
-            Symptom Tracker
-          </Header>
-        </Segment>
-        <Segment>
-          <Container>
-            <Grid columns={2} stackable relaxed='very'>
-              <Grid.Column >
-                <Header as="h3" textAlign='center'>
-                  Mark your symptoms below
-                </Header>
-                <Divider/>
-                <p>
-                  <Checkbox label='Fever' />
-                </p>
-                <p>
-                  <Checkbox label='Cough' />
-                </p>
-                <p>
-                  <Checkbox label='Shortness of breath' />
-                </p>
-                <p>
-                  <Checkbox label='Headaches' />
-                </p>
-                <p>
-                  <Checkbox label='Fatigue' />
-                </p>
-                <p>
-                  <Checkbox label='Trouble breathing' />
-                </p>
-                <p>
-                  <Checkbox label='Persistent pain or pressure in the chest' />
-                </p>
-              </Grid.Column>
+      <div id="symptomsBody">
+        <Header as="h1" style={{ marginLeft: 25 }}>
+          Symptom Tracker
+        </Header>
 
-              <Grid.Column>
-              <Header as="h3" textAlign='center'>
-                  Recomendations
+        <Grid>
+          <Grid.Row>
+            <Grid.Column floated="right" width={10}>
+              <Segment inverted color="yellow">
+                <Header>
+                  <Icon name="warning sign" size="large" />
+                  Call your doctor: If you think you have been exposed to
+                  COVID-19 and develop a fever and symptoms, such as cough or
+                  difficulty breathing. This symptom tracker is only available
+                  to help guide you, always call your healthcare provider for
+                  medical advice.
                 </Header>
-                <Divider/>
-                <Header as="h2" textAlign='center'>
-                  Place holder for QUARANTINE or DANGER
-                </Header>
-                <p>
-                  Place holder for recomendations
-                </p>
-              </Grid.Column>
-            </Grid>
-            <Divider vertical />
-          </Container>
-        </Segment>
+              </Segment>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+
+        <Grid columns={2} divided responsive="true" stackable>
+          <Grid.Row>
+            <Grid.Column width={4} className="symptomcolumns">
+              <Header as="h3">
+                COVID-19 realted symptoms
+                <br />
+                Mark your down symptoms below
+              </Header>
+              <Form>
+                <Form.Field>
+                  <Checkbox value="1" label="Fever" />
+                </Form.Field>
+                <Form.Field>
+                  <Checkbox value="1" label="Dry cough" />
+                </Form.Field>
+                <Form.Field>
+                  <Checkbox value="2" label="Shortness of breath" />
+                </Form.Field>
+                <Form.Field>
+                  <Checkbox value="1" label="Headaches" />
+                </Form.Field>
+                <Form.Field>
+                  <Checkbox value="1" label="Fatigue" />
+                </Form.Field>
+                <Form.Field>
+                  <Checkbox value="4" label="Trouble breathing" />
+                </Form.Field>
+                <Form.Field>
+                  <Checkbox
+                    value="4"
+                    label="Persistent pain or pressure in the chest"
+                  />
+                </Form.Field>
+              </Form>
+            </Grid.Column>
+            <Grid.Column className="symptomcolumns" id="recomendations">
+              <Header as="h3">Recomendations</Header>
+              <Header as="h2">Place holder for QUARANTINE or DANGER</Header>
+              <p>Place holder for recomendations</p>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
