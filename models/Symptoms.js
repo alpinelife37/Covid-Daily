@@ -5,39 +5,41 @@ const Schema = mongoose.Schema;
 const SymptomsSchema = new Schema({
   fever: {
     type: Boolean,
-    required: true
+    default: false
   },
   cough: {
     type: Boolean,
-    required: true
+    default: false
   },
   breath: {
     type: Boolean,
-    required: true
+    default: false
   },
   headache: {
     type: Boolean,
-    required: true
+    default: false
   },
   fatigue: {
     type: Boolean,
-    required: true
+    default: false
   },
   troublebreathing: {
     type: Boolean,
-    required: true
+    default: false
   },
   paininchest: {
     type: Boolean,
-    required: true
+    default: false
   },
   severity: {
     type: Number,
-    min: 0,
-    max: 10,
-    required: true
+    default: 0
   },
-  userid: {
+  color: {
+    type: String,
+    default: "green"
+  },
+  useridlink: {
     type: String,
     required: true
   },
@@ -47,4 +49,4 @@ const SymptomsSchema = new Schema({
   }
 });
 
-module.exports = Symptoms = mongoose.model("Symptoms", SymptomsSchema);
+module.exports = Symptoms = mongoose.model("symptoms", SymptomsSchema);
