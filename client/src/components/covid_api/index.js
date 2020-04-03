@@ -26,7 +26,7 @@ function CovidSearch() {
     useEffect(() => {
         // an API call.
         axios({
-            "url": "https://coronavirus-monitor.p.rapidapi.com/coronavirus/history_by_particular_country_by_date.php?country=USA&date=" + date,
+            "url": "https://coronavirus-monitor.p.rapidapi.com/coronavirus/history_by_particular_country_by_date.php?country=" + form.country_name +"&date=" + date,
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
@@ -63,7 +63,7 @@ function CovidSearch() {
                 console.log(error)
             })
 
-    }, []);
+    }, [form.country_name]);
 
     return (
 
