@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Header, Segment, Checkbox, Grid, Form, Icon } from "semantic-ui-react";
+import {
+  Header,
+  Segment,
+  Checkbox,
+  Grid,
+  Form,
+  Icon,
+  Button
+} from "semantic-ui-react";
 
 class SymptomTracker extends Component {
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("handleSubmit fired");
+  };
+
   render() {
     //  const { user } = this.props.auth
-
     return (
       <div id="symptomsBody">
         <Header as="h1" style={{ marginLeft: 25 }}>
@@ -21,8 +33,8 @@ class SymptomTracker extends Component {
                   <Icon name="warning sign" size="large" />
                   Call your doctor: If you think you have been exposed to
                   COVID-19 and develop a fever and symptoms, such as cough or
-                  difficulty breathing. This symptom tracker is only here
-                  to help guide you, always call your healthcare provider for
+                  difficulty breathing. This symptom tracker is only here to
+                  help guide you, always call your healthcare provider for
                   medical advice.
                 </Header>
               </Segment>
@@ -63,6 +75,11 @@ class SymptomTracker extends Component {
                     label="Persistent pain or pressure in the chest"
                   />
                 </Form.Field>
+                <Button
+                  type="submit"
+                  content="Submit"
+                  onClick={this.handleSubmit}
+                />
               </Form>
             </Grid.Column>
             <Grid.Column className="symptomcolumns" id="recomendations">
