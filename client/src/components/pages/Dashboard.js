@@ -11,9 +11,6 @@ class Dashboard extends Component {
 
     return (
       <Segment style={{ minHeight: "400px" }}>
-        {/* <Header as="h1" textAlign="center">
-          Dashboard
-        </Header> */}
         <Header as="h1" textAlign="center">
           <b>Welcome</b> {user.name}!
         </Header>
