@@ -27,6 +27,7 @@ class SymptomTracker extends Component {
         </Header>
         <Divider/>
 
+
         <Grid>
           <Grid.Row>
             <Grid.Column floated="right" width={10}>
