@@ -8,7 +8,8 @@ import {
   Grid,
   Form,
   Icon,
-  Button
+  Button,
+  Divider
 } from "semantic-ui-react";
 
 class SymptomTracker extends Component {
@@ -24,6 +25,7 @@ class SymptomTracker extends Component {
         <Header as="h1" style={{ marginLeft: 25 }}>
           Symptom Tracker
         </Header>
+        <Divider/>
 
         <Grid>
           <Grid.Row>
