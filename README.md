@@ -48,7 +48,7 @@ React based app that uses Passport authentication allows the user to create a Mo
 
 - [Anil Canbolat \* Github](https://github.com/Anil1992-rgb)
 - [Sammye Jones \* Github](https://github.com/SurrealSam)
-- [Abdullah Canbolat \* Github](https://github.comtcanbolat)
+- [Abdullah Canbolat \* Github](https://github.com/tcanbolat)
 - [James Nelson \* Github](https://github.com/alpinelife37)
 
 MIT License
