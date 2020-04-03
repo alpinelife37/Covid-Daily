@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Header, Segment, Image } from "semantic-ui-react";
+import { Header, Segment, Image, Divider } from "semantic-ui-react";
 import CovidLogo from "../../Covid19Logo.png";
 import News from "../news";
 import CovidSearch from "../covid_api";
@@ -13,12 +13,10 @@ class Dashboard extends Component {
     return (
       <Segment style={{ minHeight: "400px" }}>
         <Header as="h1" textAlign="center">
-          Dashboard
-        </Header>
-        <Header as="h3" textAlign="center">
           <b>Welcome</b> {user.name}!
         </Header>
         <Image size="medium" centered src={CovidLogo} />
+        <Divider/>
         <News/>
         <CovidSearch/>
       </Segment>

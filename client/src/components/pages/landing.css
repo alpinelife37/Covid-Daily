@@ -1,0 +1,8 @@
+#backgroundImg {
+    background-image: url(./covid.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+}

@@ -7,7 +7,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Navbar from "./components/pages/Navbar";
+import Navbar from "./components/layout/Navbar";
 import Landing from "./components/pages/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -15,6 +15,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/pages/Dashboard";
 import SymptomTracker from "./components/pages/SymptomTracker";
 import Resources from "./components/pages/Resources";
+import Footer from "./components/layout/Footer";
 
 import "./App.css";
 
@@ -43,15 +44,20 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
+            <PrivateRoute component={Navbar} />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <PrivateRoute component={Navbar} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/symptomtracker" component={SymptomTracker}/>
-              <PrivateRoute exact path="/resources" component={Resources}/>
+              <PrivateRoute
+                exact
+                path="/symptomtracker"
+                component={SymptomTracker}
+              />
+              <PrivateRoute exact path="/resources" component={Resources} />
             </Switch>
+            <PrivateRoute exact component={Footer} />
           </div>
         </Router>
       </Provider>
