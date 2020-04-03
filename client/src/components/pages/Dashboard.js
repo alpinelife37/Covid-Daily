@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Header, Segment, Image } from "semantic-ui-react";
 import CovidLogo from "../../Covid19Logo.png";
 import News from "../news";
+import CovidSearch from "../covid_api";
 
 class Dashboard extends Component {
   render() {
@@ -19,6 +20,7 @@ class Dashboard extends Component {
         </Header>
         <Image size="medium" centered src={CovidLogo} />
         <News/>
+        <CovidSearch/>
       </Segment>
     );
   }
