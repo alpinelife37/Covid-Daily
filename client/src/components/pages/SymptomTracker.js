@@ -1,18 +1,42 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {
-  Header,
-  Segment,
-  Checkbox,
-  Grid,
-  Form,
-  Icon,
-  Button,
-  Divider
-} from "semantic-ui-react";
+import CheckBox from "../Checkbox/Checkbox";
+import { Card, Grid, Header, Segment, Icon, Button, Divider } from "semantic-ui-react";
 
 class SymptomTracker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userSymptoms: [
+        { id: 1, name: "Fever", value: 1, isChecked: false },
+        { id: 2, name: "Dry cough", value: 2, isChecked: false },
+        { id: 3, name: "Shortness of breath", value: 2, isChecked: false },
+        { id: 4, name: "Headaches", value: 1, isChecked: false },
+        { id: 4, name: "Fatigue", value: 1, isChecked: false },
+        { id: 4, name: "Trouble breathing", value: 4, isChecked: false },
+        {
+          id: 4,
+          name: "Pain or pressure in the chest",
+          value: 4,
+          isChecked: false
+        }
+      ]
+    };
+  }
+
+  handleCheckBox = event => {
+    let userSymptoms = this.state.userSymptoms;
+    userSymptoms.forEach(symptom => {
+      if (symptom.name === event.target.name)
+        symptom.isChecked = event.target.checked;
+    });
+    this.setState({ userSymptoms: userSymptoms });
+    console.log(event.target.name);
+    console.log(event.target.checked);
+    console.log(event.target.value);
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     console.log("handleSubmit fired");
@@ -26,6 +50,7 @@ class SymptomTracker extends Component {
           Symptom Tracker
         </Header>
         <Divider/>
+
 
         <Grid>
           <Grid.Row>
@@ -52,37 +77,29 @@ class SymptomTracker extends Component {
                 <br />
                 Mark your down symptoms below
               </Header>
-              <Form>
-                <Form.Field>
-                  <Checkbox value="1" label="Fever" />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox value="1" label="Dry cough" />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox value="2" label="Shortness of breath" />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox value="1" label="Headaches" />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox value="1" label="Fatigue" />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox value="4" label="Trouble breathing" />
-                </Form.Field>
-                <Form.Field>
-                  <Checkbox
-                    value="4"
-                    label="Persistent pain or pressure in the chest"
-                  />
-                </Form.Field>
-                <Button
+              <Card>
+                <Card.Content>
+                  <div className="App">
+                    <ul>
+                      {this.state.userSymptoms.map((symptom, index) => {
+                        return (
+                          <CheckBox
+                            className="checkMarkContainer"
+                            key={index}
+                            handleCheckBox={this.handleCheckBox}
+                            {...symptom}
+                          />
+                        );
+                      })}
+                    </ul>
+                  </div>
+                  <Button
                   type="submit"
                   content="Submit"
                   onClick={this.handleSubmit}
                 />
-              </Form>
+                </Card.Content>
+              </Card>
             </Grid.Column>
             <Grid.Column className="symptomcolumns" id="recomendations">
               <Header as="h3">Recomendations</Header>
