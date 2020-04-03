@@ -15,6 +15,8 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/pages/Dashboard";
 import SymptomTracker from "./components/pages/SymptomTracker";
 import Resources from "./components/pages/Resources";
+import Footer from "./components/layout/Footer";
+
 
 import "./App.css";
 
@@ -56,6 +58,7 @@ class App extends Component {
               />
               <PrivateRoute exact path="/resources" component={Resources} />
             </Switch>
+            <PrivateRoute exact component={Footer} />
           </div>
         </Router>
       </Provider>

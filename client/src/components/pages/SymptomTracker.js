@@ -21,7 +21,7 @@ class SymptomTracker extends Component {
                   <Icon name="warning sign" size="large" />
                   Call your doctor: If you think you have been exposed to
                   COVID-19 and develop a fever and symptoms, such as cough or
-                  difficulty breathing. This symptom tracker is only available
+                  difficulty breathing. This symptom tracker is only here
                   to help guide you, always call your healthcare provider for
                   medical advice.
                 </Header>
