@@ -24,7 +24,7 @@ class Landing extends Component {
   render() {
     return (
       <div id="backgroundImg">
-        <Container transparent style={{ marginTop: 100, opacity: 0.9 }}>
+        <Container style={{ marginTop: 100, opacity: 0.9 }}>
           <Segment textAlign="center" >
             <Header as="h1" content="Covid Daily" />
             <Header as="h3">
