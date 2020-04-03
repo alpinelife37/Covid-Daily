@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import CheckBox from "../Checkbox/Checkbox";
-import { Card, Grid, Header, Segment, Icon, Button } from "semantic-ui-react";
+import { Card, Grid, Header, Segment, Icon, Button, Divider } from "semantic-ui-react";
 
 class SymptomTracker extends Component {
   constructor(props) {
@@ -49,6 +49,8 @@ class SymptomTracker extends Component {
         <Header as="h1" style={{ marginLeft: 25 }}>
           Symptom Tracker
         </Header>
+        <Divider/>
+
 
         <Grid>
           <Grid.Row>

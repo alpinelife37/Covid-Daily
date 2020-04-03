@@ -6,8 +6,9 @@
 
 React based app that uses Passport authentication allows the user to create a MongoDb login, see current news & statistics of Covid-19, track their symptoms, & have access to related resources.
 
-![Example profile](./client/public/example.png)
-[Deployed Link]()
+
+![Example profile](./client/public/exampleMain.png)
+ [Deployed Link]()
 
 ### BUILT WITH
 
@@ -39,6 +40,8 @@ React based app that uses Passport authentication allows the user to create a Mo
 - [React-dom](https://www.npmjs.com/package/react-dom)
 - [React-scripts](https://www.npmjs.com/package/react-scripts)
 - [React-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [React-player](https://www.npmjs.com/package/react-player)
+
 
 ### ADDITIONAL BUILD RESOURCES
 
