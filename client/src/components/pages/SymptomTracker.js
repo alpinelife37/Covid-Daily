@@ -36,6 +36,21 @@ class SymptomTracker extends Component {
       severityvalues: []
     };
   }
+
+  componentDidMount() {
+    const symptomID = this.state.symptomid;
+    axios.get("/api/usersymptoms", {
+      params: {
+        ID: symptomID
+      }
+    }).then(response => {
+      // this.setState({
+      //   dbresults: response.data
+      // });
+      console.log(response);
+    });
+  } 
+
   handleCheckBox = event => {
     let userSymptoms = this.state.userSymptoms;
     userSymptoms.forEach(symptom => {
