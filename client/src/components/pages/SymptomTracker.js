@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import CheckBox from "../Checkbox/Checkbox";
-import { Card, Grid, Header, Segment, Icon, Button, Divider } from "semantic-ui-react";
+import axios from "axios";
 
+import CheckBox from "../Checkbox/Checkbox";
+import {
+  Card,
+  Grid,
+  Header,
+  Segment,
+  Icon,
+  Button,
+  Divider
+} from "semantic-ui-react";
 class SymptomTracker extends Component {
   constructor(props) {
     super(props);
@@ -13,18 +22,20 @@ class SymptomTracker extends Component {
         { id: 2, name: "Dry cough", value: 2, isChecked: false },
         { id: 3, name: "Shortness of breath", value: 2, isChecked: false },
         { id: 4, name: "Headaches", value: 1, isChecked: false },
-        { id: 4, name: "Fatigue", value: 1, isChecked: false },
-        { id: 4, name: "Trouble breathing", value: 4, isChecked: false },
+        { id: 5, name: "Fatigue", value: 1, isChecked: false },
+        { id: 6, name: "Trouble breathing", value: 4, isChecked: false },
         {
-          id: 4,
+          id: 7,
           name: "Pain or pressure in the chest",
           value: 4,
           isChecked: false
         }
-      ]
+      ],
+      symptomid: this.props.auth.user.symptomid,
+      color: "blue",
+      severityvalues: []
     };
   }
-
   handleCheckBox = event => {
     let userSymptoms = this.state.userSymptoms;
     userSymptoms.forEach(symptom => {
@@ -32,25 +43,39 @@ class SymptomTracker extends Component {
         symptom.isChecked = event.target.checked;
     });
     this.setState({ userSymptoms: userSymptoms });
-    console.log(event.target.name);
-    console.log(event.target.checked);
-    console.log(event.target.value);
+    // console.log("handleCheckBox event fired");
+    // console.log(event.target.name);
+    // console.log(event.target.checked);
+    // console.log(event.target.value);
   };
+
+updateSymptoms = ()=> {
+    axios.post("/api/symptoms", this.state).then(res => {
+      console.log(res);
+    });
+}
 
   handleSubmit = event => {
     event.preventDefault();
     console.log("handleSubmit fired");
+    this.setState({ severityvalues: [] });
+    let userSymptoms = this.state.userSymptoms;
+    let severityLevel = this.state.severityvalues;
+    userSymptoms.forEach(symptom => {
+      if (symptom.isChecked === true) severityLevel.push(symptom.value);
+    });
+    severityLevel = severityLevel.reduce((a, b) => a + b, 0);
+    this.setState({severityLevel: severityLevel });
+    this.updateSymptoms();  
   };
 
   render() {
-    //  const { user } = this.props.auth
     return (
       <div id="symptomsBody">
         <Header as="h1" style={{ marginLeft: 25 }}>
           Symptom Tracker
         </Header>
-        <Divider/>
-
+        <Divider />
 
         <Grid>
           <Grid.Row>
@@ -79,7 +104,7 @@ class SymptomTracker extends Component {
               </Header>
               <Card>
                 <Card.Content>
-                  <div className="App">
+                  <div id="checkboxlist">
                     <ul>
                       {this.state.userSymptoms.map((symptom, index) => {
                         return (
@@ -94,10 +119,10 @@ class SymptomTracker extends Component {
                     </ul>
                   </div>
                   <Button
-                  type="submit"
-                  content="Submit"
-                  onClick={this.handleSubmit}
-                />
+                    type="submit"
+                    content="Submit"
+                    onClick={this.handleSubmit}
+                  />
                 </Card.Content>
               </Card>
             </Grid.Column>

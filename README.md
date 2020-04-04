@@ -6,9 +6,8 @@
 
 React based app that uses Passport authentication allows the user to create a MongoDb login, see current news & statistics of Covid-19, track their symptoms, & have access to related resources.
 
-
 ![Example profile](./client/public/exampleMain.png)
- [Deployed Link]()
+[Deployed Link]()
 
 ### BUILT WITH
 
@@ -23,25 +22,29 @@ React based app that uses Passport authentication allows the user to create a Mo
 
 ### NODE MODULES USED
 
-- [Concurrently](https://www.npmjs.com/package/concurrently)
-- [Nodemon](https://www.npmjs.com/package/nodemon)
-- [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
-- [Body-parser](https://www.npmjs.com/package/body-parser)
-- [Express](https://www.npmjs.com/package/express)
-- [if-env](https://www.npmjs.com/package/if-env)
-- [is-empty](https://www.npmjs.com/package/is-empty)
-- [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
-- [Mongoose](https://www.npmjs.com/package/mongoose)
-- [Passport](https://www.npmjs.com/package/passport)
-- [Passport-jwt](https://www.npmjs.com/package/passport-jwt)
-- [Validator](https://www.npmjs.com/package/validator)
 - [Axios](https://www.npmjs.com/package/axios)
+- [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [Body-Parser](https://www.npmjs.com/package/body-parser)
+- [Classnames](https://www.npmjs.com/package/classnames)
+- [Concurrently](https://www.npmjs.com/package/concurrently)
+- [Express](https://www.npmjs.com/package/express)
+- [If-Env](https://www.npmjs.com/package/if-env)
+- [Is-Empty](https://www.npmjs.com/package/is-empty)
+- [Jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [Jwt-Decode](https://www.npmjs.com/package/jwt-decode)
+- [Mongoose](https://www.npmjs.com/package/mongoose)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Passport](https://www.npmjs.com/package/passport)
+- [Passport-Jwt](https://www.npmjs.com/package/passport-jwt)
 - [React](https://www.npmjs.com/package/react)
-- [React-dom](https://www.npmjs.com/package/react-dom)
-- [React-scripts](https://www.npmjs.com/package/react-scripts)
-- [React-router-dom](https://www.npmjs.com/package/react-router-dom)
-- [React-player](https://www.npmjs.com/package/react-player)
-
+- [React-Dom](https://www.npmjs.com/package/react-dom)
+- [React-Player](https://www.npmjs.com/package/react-player)
+- [React-Scripts](https://www.npmjs.com/package/react-scripts)
+- [React-Redux](https://www.npmjs.com/package/react-redux)
+- [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+- [Redux-Thunk](https://www.npmjs.com/package/redux-thunk)
+- [Semantic-Ui-React](https://www.npmjs.com/package/semantic-ui-react)
+- [Validator](https://www.npmjs.com/package/validator)
 
 ### ADDITIONAL BUILD RESOURCES
 
