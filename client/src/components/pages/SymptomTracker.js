@@ -5,7 +5,6 @@ import axios from "axios";
 
 import CheckBox from "../Checkbox/Checkbox";
 import { Card, Grid, Header, Segment, Icon, Button, Divider } from "semantic-ui-react";
-
 class SymptomTracker extends Component {
   constructor(props) {
     super(props);
@@ -17,17 +16,12 @@ class SymptomTracker extends Component {
         { id: 4, name: "Headaches", value: 1, isChecked: false },
         { id: 4, name: "Fatigue", value: 1, isChecked: false },
         { id: 4, name: "Trouble breathing", value: 4, isChecked: false },
-        {
-          id: 4,
-          name: "Pain or pressure in the chest",
-          value: 4,
-          isChecked: false
-        }
+        { id: 4, name: "Pain or pressure in the chest", value: 4, isChecked: false }
       ],
-      severityLevel: []
+      severityLevel: [],
+      userid: this.props.auth.user.id
     };
   }
-
   handleCheckBox = event => {
     let userSymptoms = this.state.userSymptoms;
     userSymptoms.forEach(symptom => {
@@ -54,10 +48,13 @@ class SymptomTracker extends Component {
     });
     severityLevel = severityLevel.reduce((a, b) => a + b, 0);
     console.log("severity level: " + severityLevel);
+    console.log(this.state.userid);
+    axios.post("/api/symptoms", this.state ).then((res) => {
+      console.log(res);
+    })
   };
 
   render() {
-    //  const { user } = this.props.auth
     return (
       <div id="symptomsBody">
         <Header as="h1" style={{ marginLeft: 25 }}>
