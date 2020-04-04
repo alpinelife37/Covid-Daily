@@ -25,4 +25,14 @@ router.post("/api/symptoms", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get("/api/usersymptoms", (req, res) => {
+    console.log("req: ");
+    console.log(req.query.ID);
+  Symptoms.findOne({_id: req.query.ID})
+    .then(symptomsDocument => {
+      res.json(symptomsDocument);
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
