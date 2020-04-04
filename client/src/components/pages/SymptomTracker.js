@@ -49,11 +49,11 @@ class SymptomTracker extends Component {
     // console.log(event.target.value);
   };
 
-updateSymptoms = ()=> {
+  updateSymptoms = () => {
     axios.post("/api/symptoms", this.state).then(res => {
       console.log(res);
     });
-}
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -65,20 +65,18 @@ updateSymptoms = ()=> {
       if (symptom.isChecked === true) severityLevel.push(symptom.value);
     });
     severityLevel = severityLevel.reduce((a, b) => a + b, 0);
-    this.setState({severityLevel: severityLevel });
-    this.updateSymptoms();  
+    this.setState({ severityLevel: severityLevel });
+    this.updateSymptoms();
   };
 
   render() {
     return (
-      <div id="symptomsBody">
-        <Header as="h1" style={{ marginLeft: 25 }}>
-          Symptom Tracker
-        </Header>
-        <Divider />
-
-        <Grid>
+      <div id="symptomsBody" style={{ paddingTop: 25 }}>
+        <Grid textAlign="center">
           <Grid.Row>
+            <Header as="h1" style={{ marginLeft: 100, marginTop: 10, fontSize: 40 }}>
+              Symptom Tracker
+            </Header>
             <Grid.Column floated="right" width={10}>
               <Segment inverted color="yellow">
                 <Header>
@@ -94,21 +92,25 @@ updateSymptoms = ()=> {
           </Grid.Row>
         </Grid>
 
+        <Divider />
+
+
         <Grid columns={2} divided responsive="true" stackable>
           <Grid.Row>
             <Grid.Column width={4} className="symptomcolumns">
-              <Header as="h3">
-                COVID-19 realted symptoms
-                <br />
-                Mark your down symptoms below
+              <Header style={{ marginTop: 5, }} color="orange" as="h2">
+                COVID-19 realted symptoms:
               </Header>
-              <Card>
-                <Card.Content>
+              <Header as="h4">
+                Mark your symptoms below
+              </Header>
+              <Card style={{ width: "auto" }} >
+                <Card.Content style={{ width: "100%" }}>
                   <div id="checkboxlist">
-                    <ul>
+                    <ul style={{ paddingLeft: "20px" }}>
                       {this.state.userSymptoms.map((symptom, index) => {
                         return (
-                          <CheckBox
+                          <CheckBox style={{ fontSize: 50 }}
                             className="checkMarkContainer"
                             key={index}
                             handleCheckBox={this.handleCheckBox}
@@ -118,6 +120,7 @@ updateSymptoms = ()=> {
                       })}
                     </ul>
                   </div>
+                  <br/>
                   <Button
                     type="submit"
                     content="Submit"
@@ -127,7 +130,8 @@ updateSymptoms = ()=> {
               </Card>
             </Grid.Column>
             <Grid.Column className="symptomcolumns" id="recomendations">
-              <Header as="h3">Recomendations</Header>
+              <Header style={{ marginTop: 5 }} color="orange" textAlign="center" as="h2">Recomendations:</Header>
+              <br/>
               <Header as="h2">Place holder for QUARANTINE or DANGER</Header>
               <p>Place holder for recomendations</p>
             </Grid.Column>
