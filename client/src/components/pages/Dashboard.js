@@ -7,6 +7,9 @@ import News from "../news";
 import CovidSearch from "../covid_api";
 
 class Dashboard extends Component {
+
+
+
   render() {
     const { user } = this.props.auth;
 
