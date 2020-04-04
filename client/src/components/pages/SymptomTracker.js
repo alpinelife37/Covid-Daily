@@ -14,12 +14,14 @@ class SymptomTracker extends Component {
         { id: 2, name: "Dry cough", value: 2, isChecked: false },
         { id: 3, name: "Shortness of breath", value: 2, isChecked: false },
         { id: 4, name: "Headaches", value: 1, isChecked: false },
-        { id: 4, name: "Fatigue", value: 1, isChecked: false },
-        { id: 4, name: "Trouble breathing", value: 4, isChecked: false },
-        { id: 4, name: "Pain or pressure in the chest", value: 4, isChecked: false }
+        { id: 5, name: "Fatigue", value: 1, isChecked: false },
+        { id: 6, name: "Trouble breathing", value: 4, isChecked: false },
+        { id: 7, name: "Pain or pressure in the chest", value: 4, isChecked: false }
       ],
-      severityLevel: [],
-      userid: this.props.auth.user.id
+      severity: 0,
+      symptomid: this.props.auth.user.symptomid,
+      color: "blue",
+      severityvalues: []
     };
   }
   handleCheckBox = event => {
@@ -29,26 +31,29 @@ class SymptomTracker extends Component {
         symptom.isChecked = event.target.checked;
     });
     this.setState({ userSymptoms: userSymptoms });
-    console.log("handleCheckBox event fired");
-    console.log(event.target.name);
-    console.log(event.target.checked);
-    console.log(event.target.value);
+    // console.log("handleCheckBox event fired");
+    // console.log(event.target.name);
+    // console.log(event.target.checked);
+    // console.log(event.target.value);
   };
 
   handleSubmit = event => {
     event.preventDefault();
     console.log("handleSubmit fired");
+    this.setState({severity: 0});
     let userSymptoms = this.state.userSymptoms;
-    let severityLevel = this.state.severityLevel;
-    console.log("this.state.userSymptoms:");
-    console.log(userSymptoms);
+    let severityLevel = this.state.severityvalues;
+    console.log(severityLevel);
+    // console.log(userSymptoms);
     userSymptoms.forEach(symptom => {
       if (symptom.isChecked === true)
         severityLevel.push(symptom.value);
     });
     severityLevel = severityLevel.reduce((a, b) => a + b, 0);
-    console.log("severity level: " + severityLevel);
-    console.log(this.state.userid);
+     console.log(severityLevel);
+    this.setState({severity: severityLevel});
+    // console.log("severity level: " + this.state.severity);
+    console.log(this.state.severity);
     axios.post("/api/symptoms", this.state ).then((res) => {
       console.log(res);
     })

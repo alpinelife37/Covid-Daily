@@ -17,7 +17,7 @@ app.use(
 app.use(bodyParser.json());
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/users", { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/users", { useNewUrlParser: true, useFindAndModify: false })
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 

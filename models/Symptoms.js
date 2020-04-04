@@ -39,10 +39,6 @@ const SymptomsSchema = new Schema({
     type: String,
     default: "green"
   },
-  useridlink: {
-    type: String,
-    required: true
-  },
   date: {
     type: Date,
     default: Date.now
