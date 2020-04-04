@@ -17,23 +17,11 @@ class SymptomTracker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userSymptoms: [
-        { id: 1, name: "Fever", value: 1, isChecked: false },
-        { id: 2, name: "Dry cough", value: 2, isChecked: false },
-        { id: 3, name: "Shortness of breath", value: 2, isChecked: false },
-        { id: 4, name: "Headaches", value: 1, isChecked: false },
-        { id: 5, name: "Fatigue", value: 1, isChecked: false },
-        { id: 6, name: "Trouble breathing", value: 4, isChecked: false },
-        {
-          id: 7,
-          name: "Pain or pressure in the chest",
-          value: 4,
-          isChecked: false
-        }
-      ],
+      userSymptoms: [],
       symptomid: this.props.auth.user.symptomid,
-      color: "blue",
-      severityvalues: []
+      color: "green",
+      severityvalues: [],
+      severitydb: 0
     };
   }
 
@@ -44,10 +32,21 @@ class SymptomTracker extends Component {
         ID: symptomID
       }
     }).then(response => {
-      // this.setState({
-      //   dbresults: response.data
-      // });
-      console.log(response);
+      this.setState({
+        userSymptoms: [
+          { id: 1, name: "Fever", value: 1, isChecked: response.data.fever },
+          { id: 2, name: "Dry cough", value: 2, isChecked: response.data.cough },
+          { id: 3, name: "Shortness of breath", value: 2, isChecked: response.data.breath },
+          { id: 4, name: "Headaches", value: 1, isChecked: response.data.headache },
+          { id: 5, name: "Fatigue", value: 1, isChecked: response.data.fatigue },
+          { id: 6, name: "Trouble breathing", value: 4, isChecked: response.data.troublebreathing },
+          {id: 7, name: "Pain or pressure in the chest", value: 4, isChecked: response.data.paininchest }
+        ],
+        color: response.data.color,
+        severitydb: response.data.severity
+      });
+      console.log(response.data);
+      console.log("severity: " + this.state.severitydb)
     });
   } 
 
