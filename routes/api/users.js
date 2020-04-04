@@ -30,10 +30,13 @@ router.post("/register", (req, res) => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
+      const userSymptoms = new Symptoms({});
+      userSymptoms.save();
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        symptomid: userSymptoms._id
       });
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
@@ -46,11 +49,6 @@ router.post("/register", (req, res) => {
             .catch(err => console.log(err));
         });
       });
-      const userSymptoms = new Symptoms({
-        useridlink: newUser._id,
-      });
-      userSymptoms
-      .save()
     }
   });
 });
@@ -84,8 +82,9 @@ router.post("/login", (req, res) => {
         // User matched
         // Create JWT Payload
         const payload = {
+          symptomid: user.symptomid,
           id: user.id,
-          name: user.name
+          name: user.name,
         };
 
         // Sign token
