@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import axios from "axios";
+
 import CheckBox from "../Checkbox/Checkbox";
 import { Card, Grid, Header, Segment, Icon, Button, Divider } from "semantic-ui-react";
 
@@ -21,7 +23,8 @@ class SymptomTracker extends Component {
           value: 4,
           isChecked: false
         }
-      ]
+      ],
+      severityLevel: []
     };
   }
 
@@ -32,6 +35,7 @@ class SymptomTracker extends Component {
         symptom.isChecked = event.target.checked;
     });
     this.setState({ userSymptoms: userSymptoms });
+    console.log("handleCheckBox event fired");
     console.log(event.target.name);
     console.log(event.target.checked);
     console.log(event.target.value);
@@ -40,6 +44,16 @@ class SymptomTracker extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("handleSubmit fired");
+    let userSymptoms = this.state.userSymptoms;
+    let severityLevel = this.state.severityLevel;
+    console.log("this.state.userSymptoms:");
+    console.log(userSymptoms);
+    userSymptoms.forEach(symptom => {
+      if (symptom.isChecked === true)
+        severityLevel.push(symptom.value);
+    });
+    severityLevel = severityLevel.reduce((a, b) => a + b, 0);
+    console.log("severity level: " + severityLevel);
   };
 
   render() {
@@ -79,8 +93,8 @@ class SymptomTracker extends Component {
               </Header>
               <Card>
                 <Card.Content>
-                  <div className="App">
-                    <ul>
+                  <div id="checkboxlist">
+                    <ul >
                       {this.state.userSymptoms.map((symptom, index) => {
                         return (
                           <CheckBox

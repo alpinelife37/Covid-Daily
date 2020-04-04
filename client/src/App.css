@@ -15,7 +15,7 @@
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -68,9 +68,8 @@
   /* Style the checkmark/indicator */
   .checkMarkContainer .checkmark:after {
     left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    width: 9px;
+    height: 18px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
