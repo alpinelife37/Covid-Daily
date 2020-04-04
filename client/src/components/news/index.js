@@ -19,7 +19,7 @@ function News() {
     const date = CurrentDate();
 
     var queryUrl = 'https://newsapi.org/v2/top-headlines?' +
-        'q=covid-19&' +
+        'q=corona&' +
         'country=us&' +
         'from=' + date + '&' +
         'sortBy=popularity&' +
