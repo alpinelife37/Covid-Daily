@@ -2,6 +2,8 @@ const router = require("express").Router();
 const Symptoms = require("../../models/Symptoms");
 
 router.post("/api/symptoms", (req, res) => {
+  // console.log(req.body);
+  req.body.severityvalues = req.body.severityvalues.reduce((a, b) => a + b, 0);
   Symptoms.findOneAndUpdate(
     { _id: req.body.symptomid },
     {
@@ -12,7 +14,7 @@ router.post("/api/symptoms", (req, res) => {
       fatigue: req.body.userSymptoms[4].isChecked,
       troublebreathing: req.body.userSymptoms[5].isChecked,
       paininchest: req.body.userSymptoms[6].isChecked,
-      severity: req.body.severity,
+      severity: req.body.severityvalues,
       color: req.body.color
     },
     { new: true }

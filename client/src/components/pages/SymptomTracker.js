@@ -4,7 +4,15 @@ import { connect } from "react-redux";
 import axios from "axios";
 
 import CheckBox from "../Checkbox/Checkbox";
-import { Card, Grid, Header, Segment, Icon, Button, Divider } from "semantic-ui-react";
+import {
+  Card,
+  Grid,
+  Header,
+  Segment,
+  Icon,
+  Button,
+  Divider
+} from "semantic-ui-react";
 class SymptomTracker extends Component {
   constructor(props) {
     super(props);
@@ -16,9 +24,13 @@ class SymptomTracker extends Component {
         { id: 4, name: "Headaches", value: 1, isChecked: false },
         { id: 5, name: "Fatigue", value: 1, isChecked: false },
         { id: 6, name: "Trouble breathing", value: 4, isChecked: false },
-        { id: 7, name: "Pain or pressure in the chest", value: 4, isChecked: false }
+        {
+          id: 7,
+          name: "Pain or pressure in the chest",
+          value: 4,
+          isChecked: false
+        }
       ],
-      severity: 0,
       symptomid: this.props.auth.user.symptomid,
       color: "blue",
       severityvalues: []
@@ -37,26 +49,24 @@ class SymptomTracker extends Component {
     // console.log(event.target.value);
   };
 
+updateSymptoms = ()=> {
+    axios.post("/api/symptoms", this.state).then(res => {
+      console.log(res);
+    });
+}
+
   handleSubmit = event => {
     event.preventDefault();
     console.log("handleSubmit fired");
-    this.setState({severity: 0});
+    this.setState({ severityvalues: [] });
     let userSymptoms = this.state.userSymptoms;
     let severityLevel = this.state.severityvalues;
-    console.log(severityLevel);
-    // console.log(userSymptoms);
     userSymptoms.forEach(symptom => {
-      if (symptom.isChecked === true)
-        severityLevel.push(symptom.value);
+      if (symptom.isChecked === true) severityLevel.push(symptom.value);
     });
     severityLevel = severityLevel.reduce((a, b) => a + b, 0);
-     console.log(severityLevel);
-    this.setState({severity: severityLevel});
-    // console.log("severity level: " + this.state.severity);
-    console.log(this.state.severity);
-    axios.post("/api/symptoms", this.state ).then((res) => {
-      console.log(res);
-    })
+    this.setState({severityLevel: severityLevel });
+    this.updateSymptoms();  
   };
 
   render() {
@@ -65,8 +75,7 @@ class SymptomTracker extends Component {
         <Header as="h1" style={{ marginLeft: 25 }}>
           Symptom Tracker
         </Header>
-        <Divider/>
-
+        <Divider />
 
         <Grid>
           <Grid.Row>
@@ -96,7 +105,7 @@ class SymptomTracker extends Component {
               <Card>
                 <Card.Content>
                   <div id="checkboxlist">
-                    <ul >
+                    <ul>
                       {this.state.userSymptoms.map((symptom, index) => {
                         return (
                           <CheckBox
@@ -110,10 +119,10 @@ class SymptomTracker extends Component {
                     </ul>
                   </div>
                   <Button
-                  type="submit"
-                  content="Submit"
-                  onClick={this.handleSubmit}
-                />
+                    type="submit"
+                    content="Submit"
+                    onClick={this.handleSubmit}
+                  />
                 </Card.Content>
               </Card>
             </Grid.Column>
