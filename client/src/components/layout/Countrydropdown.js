@@ -7,8 +7,9 @@ const countries = GetCountries();
 //console.log(countries);
 
 const DropdownCountrySearchSelection = () => (
-    <Dropdown
+    <Dropdown 
     placeholder='Country'
+    style={{ maxWidth: 200 }}
     fluid
     search
     selection
