@@ -16,6 +16,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 mongoose
   .connect(
     process.env.MONGODB_URI ||
