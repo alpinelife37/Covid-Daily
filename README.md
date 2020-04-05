@@ -7,7 +7,7 @@
 React based app that uses Passport authentication allows the user to create a MongoDb login, see current news & statistics of Covid-19, track their symptoms, & have access to related resources.
 
 ![Example profile](./client/public/exampleMain.png)
-[Deployed Link]()
+[Deployed Link](https://blooming-tor-47379.herokuapp.com/)
 
 ### BUILT WITH
 
