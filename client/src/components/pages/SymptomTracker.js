@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import axios from "axios";
+import Recomendations from "./Recomendations";
 
 import CheckBox from "../Checkbox/Checkbox";
 import {
@@ -45,8 +46,7 @@ class SymptomTracker extends Component {
         color: response.data.color,
         severitydb: response.data.severity
       });
-      console.log(response.data);
-      console.log("severity: " + this.state.severitydb)
+      console.log("severityDB: " + this.state.severitydb)
     });
   } 
 
@@ -65,7 +65,8 @@ class SymptomTracker extends Component {
 
   updateSymptoms = () => {
     axios.post("/api/symptoms", this.state).then(res => {
-      console.log(res);
+      console.log(res.data.severity);
+      this.setState({severitydb: res.data.severity});
     });
   }
 
@@ -145,9 +146,7 @@ class SymptomTracker extends Component {
             </Grid.Column>
             <Grid.Column className="symptomcolumns" id="recomendations">
               <Header style={{ marginTop: 5 }} color="orange" textAlign="center" as="h2">Recomendations:</Header>
-              <br/>
-              <Header as="h2">Place holder for QUARANTINE or DANGER</Header>
-              <p>Place holder for recomendations</p>
+              <Recomendations severity={this.state.severitydb}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>
