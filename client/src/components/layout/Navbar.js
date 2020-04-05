@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Menu, Segment, Button } from "semantic-ui-react";
-import DropdownCountrySearchSelection from "../layout/Countrydropdown";
+
 
 
 class Navbar extends Component {
@@ -42,7 +42,7 @@ class Navbar extends Component {
             />
           </Link>
           <Menu.Item position="right">
-            <DropdownCountrySearchSelection style={{marginRight: 15}}/>
+            
 
             {user.name.split(" ")[0]}
             <Button style={{marginLeft: 15}} onClick={this.onLogoutClick}>Log Out</Button>
