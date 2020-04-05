@@ -5,6 +5,7 @@ import { Header, Segment, Image, Divider } from "semantic-ui-react";
 import CovidLogo from "../../Covid19Logo.png";
 import News from "../news";
 import CovidSearch from "../covid_api";
+import Chart from "./Chart";
 
 class Dashboard extends Component {
 
@@ -22,7 +23,9 @@ class Dashboard extends Component {
         <Divider/>
         <News/>
         <CovidSearch/>
+        <Chart/>
       </Segment>
+      
     );
   }
 }
