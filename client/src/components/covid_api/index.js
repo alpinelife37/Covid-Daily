@@ -4,11 +4,11 @@ import CurrentDate from "../date";
 const axios = require("axios");
 
 
-function CovidSearch() {
-
+function CovidSearch(props) {
+ var country = props.country;
     const [form, setState] = useState({
         id: "",
-        country_name: "USA",
+        country_name: country,
         total_cases: "",
         new_cases: "",
         active_cases: "",

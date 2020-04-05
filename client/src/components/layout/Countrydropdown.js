@@ -6,8 +6,10 @@ const countries = GetCountries();
 
 //console.log(countries);
 
-const DropdownCountrySearchSelection = () => (
-    <Dropdown 
+const DropdownCountrySearchSelection = (props) => (
+
+  <Dropdown
+    onChange={props.selectHandler}
     placeholder='Country'
     style={{ maxWidth: 200 }}
     fluid
