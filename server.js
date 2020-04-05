@@ -16,6 +16,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 mongoose
   .connect(
     process.env.MONGODB_URI ||
@@ -35,5 +39,9 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
 app.use(require("./routes/api/symptoms"));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
