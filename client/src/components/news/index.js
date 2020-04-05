@@ -37,13 +37,13 @@ function News() {
             .then(function (response) {
                 response.json().then(data => {
                     // do something with your data
-                    console.log(data.articles);
+                    //console.log(data.articles);
 
                     let article;
                     let i;
                     for (i = 0; i < data.articles.length; i++) {
                         article = data.articles[i];
-                        console.log(article);
+                        //console.log(article);
                         if (article.title && article.description && article.author && article.url && article.urlToImage) {
                              break;
                         }
@@ -54,13 +54,7 @@ function News() {
                     setBody(article.description);
                     setAuthor(article.author);
                     setUrl(article.url);
-                    if (article.urlToImage === null) {
-                        setImgsrc("https://specials-images.forbesimg.com/imageserve/1203426591/960x0.jpg?cropX1=1126&cropX2=8882&cropY1=0&cropY2=4360");
-                    } else {
-                        setImgsrc(article.urlToImage);
-                    }
-
-
+                    setImgsrc(article.urlToImage);
                 });
             });
         // API.getDeveloper.then((res) => {

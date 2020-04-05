@@ -38,11 +38,11 @@ function CovidSearch() {
             // }
         })
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 const obj = response.data;
                 const last = obj.stat_by_country.length - 1;
                 const currentData = obj.stat_by_country[last];
-                console.log(currentData);
+                //console.log(currentData);
                 setState({
                     ...form,
                     id: currentData.id,
