@@ -25,8 +25,8 @@ if (process.env.NODE_ENV === "production") {
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      //"mongodb://localhost/users",
-      "mongodb://user:covid19@ds113866.mlab.com:13866/heroku_g4m022wz",
+      "mongodb://localhost/users",
+      // "mongodb://user:covid19@ds113866.mlab.com:13866/heroku_g4m022wz",
     { useNewUrlParser: true, useFindAndModify: false }
   )
   .then(() => console.log("MongoDB successfully connected"))

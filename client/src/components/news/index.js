@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Header, Image } from "semantic-ui-react";
+import { Card, Header, Image } from "semantic-ui-react";
 import CurrentDate from "../date";
 
 
@@ -67,7 +67,7 @@ function News() {
 
     return (
 
-        <Container text>
+        <Card.Content style={{ width: "100%" }}>
             <Header as='h2'> <a href={url}>{title}</a></Header>
             <Image
                 src={imgsrc}
@@ -81,7 +81,10 @@ function News() {
             <p> Author: {author}</p>
             <br />
             <p>Powered by news API</p>
-        </Container>
+        </Card.Content>
+
+
+ 
 
     )
 }
