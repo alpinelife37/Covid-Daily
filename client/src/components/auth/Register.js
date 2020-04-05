@@ -14,7 +14,7 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
-      errors: {}
+      errors: {},
     };
   }
 
@@ -28,23 +28,23 @@ class Register extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({
-        errors: nextProps.errors
+        errors: nextProps.errors,
       });
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
 
     const newUser = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -74,7 +74,7 @@ class Register extends Component {
               id="name"
               type="text"
               className={classnames("", {
-                invalid: errors.name
+                invalid: errors.name,
               })}
             />
             <span className="red-text">{errors.name}</span>
@@ -85,10 +85,11 @@ class Register extends Component {
               onChange={this.onChange}
               value={this.state.email}
               error={errors.email}
+              spellcheck="false"
               id="email"
               type="email"
               className={classnames("", {
-                invalid: errors.email
+                invalid: errors.email,
               })}
             />
             <span className="red-text">{errors.email}</span>
@@ -102,7 +103,7 @@ class Register extends Component {
               id="password"
               type="password"
               className={classnames("", {
-                invalid: errors.password
+                invalid: errors.password,
               })}
             />
             <span className="red-text">{errors.password}</span>
@@ -116,7 +117,7 @@ class Register extends Component {
               id="password2"
               type="password"
               className={classnames("", {
-                invalid: errors.password2
+                invalid: errors.password2,
               })}
             />
             <span className="red-text">{errors.password2}</span>
@@ -131,12 +132,12 @@ class Register extends Component {
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
 export default connect(mapStateToProps, { registerUser })(withRouter(Register));
