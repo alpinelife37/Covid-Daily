@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Header, Image } from "semantic-ui-react";
 import CurrentDate from "../date";
 
@@ -39,11 +39,27 @@ function News() {
                     // do something with your data
                     console.log(data.articles);
 
-                    setTitle(data.articles[0].title);
-                    setBody(data.articles[0].description);
-                    setAuthor(data.articles[0].author);
-                    setUrl(data.articles[0].url);
-                    setImgsrc(data.articles[0].urlToImage);
+                    let article;
+                    let i;
+                    for (i = 0; i < data.articles.length; i++) {
+                        article = data.articles[i];
+                        console.log(article);
+                        if (article.title && article.description && article.author && article.url && article.urlToImage) {
+                             break;
+                        }
+                    }
+
+
+                    setTitle(article.title);
+                    setBody(article.description);
+                    setAuthor(article.author);
+                    setUrl(article.url);
+                    if (article.urlToImage === null) {
+                        setImgsrc("https://specials-images.forbesimg.com/imageserve/1203426591/960x0.jpg?cropX1=1126&cropX2=8882&cropY1=0&cropY2=4360");
+                    } else {
+                        setImgsrc(article.urlToImage);
+                    }
+
 
                 });
             });
@@ -58,7 +74,7 @@ function News() {
     return (
 
         <Container text>
-            <Header as='h2'>News Header: {title}</Header>
+            <Header as='h2'> <a href={url}>{title}</a></Header>
             <Image
                 src={imgsrc}
                 as='a'
