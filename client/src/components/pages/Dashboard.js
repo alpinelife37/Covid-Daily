@@ -8,9 +8,27 @@ import CovidSearch from "../covid_api";
 // import Chart from "./Chart";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: 'USA'};
+
+    this.handleChange = this.handleChange.bind(this);
+    
+  }
+  handleChange(event) {
+    console.log(event.target.innerText); 
+    this.setState({value: event.target.innerText});
+
+  }
+  // countrySelectHandler(event){
+  //   console.log(1);
+  //   this.setState({ country: event.target.value });
+  //   console.log(this.state.country);
+  // }
+   
   render() {
     const { user } = this.props.auth;
-
+    
     return (
       <div id="symptomsBody" style={{ paddingTop: 25 }}>
         <Grid textAlign="center">
@@ -25,7 +43,10 @@ class Dashboard extends Component {
               <Segment>
                 <Grid>
                   <Grid.Column width={5} floated="left">
-                    <DropdownCountrySearchSelection />
+                    <DropdownCountrySearchSelection
+                    selectHandler={this.handleChange}
+                    value={this.state.value}
+                    />
                   </Grid.Column>
                   <Grid.Column verticalAlign="middle" width={5}>
                     <Header>
@@ -60,7 +81,9 @@ class Dashboard extends Component {
               >
                 Data:
               </Header>
-              <CovidSearch />
+              <CovidSearch 
+              country={this.state.value}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>
