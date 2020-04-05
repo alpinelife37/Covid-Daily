@@ -37,3 +37,7 @@ app.use("/api/users", users);
 app.use(require("./routes/api/symptoms"));
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
