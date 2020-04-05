@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const path = require("path");
+
 
 const users = require("./routes/api/users");
 
@@ -40,8 +42,8 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use(require("./routes/api/symptoms"));
 
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

@@ -76,3 +76,8 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+
+  #recomendationscard {
+    font-size: larger;
+    line-height: 30px;
+  }
