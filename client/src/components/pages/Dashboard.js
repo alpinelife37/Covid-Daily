@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Header, Segment, Image, Divider } from "semantic-ui-react";
 import CovidLogo from "../../Covid19Logo.png";
-import News from "../news";
-import CovidSearch from "../covid_api";
-import Chart from "./Chart";
+import DashboardBody from "../dashboardBody";
 
 class Dashboard extends Component {
 
@@ -21,9 +19,7 @@ class Dashboard extends Component {
         </Header>
         <Image size="medium" centered src={CovidLogo} />
         <Divider/>
-        <News/>
-        <CovidSearch/>
-        <Chart/>
+        <DashboardBody/>
       </Segment>
       
     );
