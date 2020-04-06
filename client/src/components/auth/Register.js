@@ -59,22 +59,24 @@ class Register extends Component {
         <Container style={{ marginTop: 100, opacity: 0.9, border: "2px solid black" }}>
           <Segment>
             <Grid columns={2} stackable>
-              <Divider vertical>Or</Divider>
+              <Divider style={{ margin: 20 }} vertical>Or</Divider>
 
               <Grid.Row verticalAlign="middle">
 
                 <Grid.Column>
                   <Link to="/"><Icon name="home"></Icon> Back to home</Link>
                   <div>
-                    <h4 style={{ textAlign: "center", fontSize: 20}}>
-                      <b>Register Below</b> 
+                    <h4 style={{ textAlign: "center", fontSize: 20 }}>
+                      <b>Register Below</b>
                     </h4>
-                    <Divider/>
+                    <Divider />
                   </div>
                   <Form noValidate onSubmit={this.onSubmit}>
                     <Form.Field>
                       <label htmlFor="name">Name</label>
-                      <input
+                      <Form.Input
+                        icon="user"
+                        iconPosition="left"
                         onChange={this.onChange}
                         value={this.state.name}
                         error={errors.name}
@@ -88,7 +90,9 @@ class Register extends Component {
                     </Form.Field>
                     <Form.Field>
                       <label htmlFor="email">Email</label>
-                      <input
+                      <Form.Input
+                        icon="mail"
+                        iconPosition="left"
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
@@ -103,7 +107,9 @@ class Register extends Component {
                     </Form.Field>
                     <Form.Field>
                       <label htmlFor="password">Password</label>
-                      <input
+                      <Form.Input
+                        icon="lock"
+                        iconPosition="left"
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
@@ -117,7 +123,9 @@ class Register extends Component {
                     </Form.Field>
                     <Form.Field>
                       <label htmlFor="password2">Confirm Password</label>
-                      <input
+                      <Form.Input
+                        icon="lock"
+                        iconPosition="left"
                         onChange={this.onChange}
                         value={this.state.password2}
                         error={errors.password2}
@@ -133,7 +141,7 @@ class Register extends Component {
                   </Form>
                 </Grid.Column>
                 <Grid.Column textAlign="center">
-                  <p style={{fontSize: 20, fontWeight: "bold"}}>
+                  <p style={{ fontSize: 20, fontWeight: "bold" }}>
                     Already have an account?
                     <br />
                     <br />

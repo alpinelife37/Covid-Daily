@@ -59,11 +59,10 @@ class Login extends Component {
         <Container style={{ marginTop: 100, opacity: 0.9, border: "2px solid black" }}>
           <Segment>
             <Grid columns={2} stackable>
-              <Divider vertical>Or</Divider>
+              <Divider style={{margin: 20}} vertical>Or</Divider>
               <Grid.Row verticalAlign="middle">
                 <Grid.Column>
                   <Link to="/"><Icon name="home"></Icon> Back to home</Link>
-
                   <h4 style={{ textAlign: "center", fontSize: 20 }}>
                     <b>Login Below</b>
                   </h4>
@@ -71,7 +70,9 @@ class Login extends Component {
                   <Form noValidate onSubmit={this.onSubmit}>
                     <Form.Field>
                       <label htmlFor="email">Email</label>
-                      <input
+                      <Form.Input
+                        icon="mail"
+                        iconPosition="left"
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
@@ -89,7 +90,9 @@ class Login extends Component {
                     </Form.Field>
                     <Form.Field>
                       <label htmlFor="password">Password</label>
-                      <input
+                      <Form.Input
+                        icon="lock"
+                        iconPosition="left"
                         onChange={this.onChange}
                         value={this.state.password}
                         error={errors.password}
@@ -104,12 +107,17 @@ class Login extends Component {
                         {errors.passwordincorrect}
                       </span>
                     </Form.Field>
-                    <Button type="submit">Login</Button>
+                    <Button primary type="submit">Login</Button>
                   </Form>
                 </Grid.Column>
-                <Grid.Column>
-                  <p className="grey-text text-darken-1">
-                    Don't have an account? <Link to="/register">Register</Link>
+                <Grid.Column textAlign="center">
+                  <p style={{ fontSize: 20, fontWeight: "bold" }} className="grey-text text-darken-1">
+                    Don't have an account?
+                    <br />
+                    <br />
+                    <Link to="/register">
+                      <Button primary>Register</Button>
+                    </Link>
                   </p>
                 </Grid.Column>
               </Grid.Row>
