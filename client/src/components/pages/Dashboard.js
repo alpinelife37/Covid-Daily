@@ -17,9 +17,17 @@ class Dashboard extends Component {
 
   }
   handleChange(event) {
+    event.preventDefault();
     this.setState({ value: event.target.innerText }, () => 
     console.log("Country Name: " + this.state.value));
  }
+// handleChange = event => {
+//   const value = event.target.value;
+//   this.setState({
+//     value: value
+//   });
+//   console.log(value);
+// };
   
 
     render() {
