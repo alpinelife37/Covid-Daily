@@ -21,21 +21,13 @@ class Dashboard extends Component {
     this.setState({ value: event.target.innerText }, () => 
     console.log("Country Name: " + this.state.value));
  }
-// handleChange = event => {
-//   const value = event.target.value;
-//   this.setState({
-//     value: value
-//   });
-//   console.log(value);
-// };
   
-
     render() {
       const { user } = this.props.auth;
 
       return (
         <div id="symptomsBody" style={{ paddingTop: 25 }}>
-          <Grid textAlign="center">
+          <Grid responsive textAlign="center">
             <Grid.Row>
               <Header
                 as="h1"
@@ -44,7 +36,7 @@ class Dashboard extends Component {
                 Dashboard
             </Header>
               <Grid.Column floated="right" width={10}>
-                <Segment>
+                <Segment style={{minWidth: 300}}>
                   <Grid>
                     <Grid.Column width={5} floated="left">
                       <DropdownCountrySearchSelection

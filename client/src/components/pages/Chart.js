@@ -4,7 +4,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class Chart extends React.Component {	
     render() {
-      console.log(this.value);
+      console.log(this.props.dayrecord.stat_by_country);
       const options = {
         title: {
           text: "Basic Column Chart in React"

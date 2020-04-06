@@ -149,7 +149,7 @@ class CovidSearch extends Component {
         <p>serious_critical: {this.state.serious_critical} </p>
         <p>region: {this.state.region} </p>
         <p>total_cases_per1m: {this.state.total_cases_per1m} </p> */}
-        <Chart/>
+        <Chart dayrecord={this.state.record_day}/>
       </Container>
     );
   }
