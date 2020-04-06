@@ -78,7 +78,7 @@ class Dashboard extends Component {
                   Data:
               </Header>
                 <CovidSearch
-                  country={this.state.value}
+                  value={this.state.value}
                 />
               </Grid.Column>
             </Grid.Row>
