@@ -11,7 +11,7 @@ const DropdownCountrySearchSelection = (props) => (
     value={props.value}
     onChange={props.selectHandler}
     placeholder="Country"
-    style={{ maxWidth: 200 }}
+    style={{ maxWidth: 200, minWidth: 200}}
     fluid
     search
     selection
