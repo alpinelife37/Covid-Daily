@@ -65,7 +65,9 @@ class Dashboard extends Component {
                   Latest News
               </Header>
                 <Card style={{ width: "auto" }}>
-                  <News />
+                  <News 
+                  
+                  />
                 </Card>
               </Grid.Column>
               <Grid.Column className="symptomcolumns" id="recomendations">

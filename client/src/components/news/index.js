@@ -1,38 +1,89 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import { Card, Header, Image } from "semantic-ui-react";
 import CurrentDate from "../date";
+const axios = require("axios");
+
+
+const date = CurrentDate();
+
+class News extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "",
+            body: "",
+            author: "",
+            url: "",
+            imgsrc: "",
+            country: "US"
+        }
+
+    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState(
+    //         { country: nextProps.value }, () =>{
+            
+    //         var queryUrl = 'https://newsapi.org/v2/top-headlines?' +
+    //         'q=corona&' +
+    //         'country=' + this.state.country + '&' +
+    //         'from=' + date + '&' +
+    //         'sortBy=popularity&' +
+    //         'apiKey=0d7e71ff7ddd480b83368a04bb626671';
+
+    //         // Powered by news API
+    //         // API key 0d7e71ff7ddd480b83368a04bb626671
+    //         var req = new Request(queryUrl);
+
+
+    //         fetch(req)
+    //             .then(function (response) {
+    //                 response.json().then(data => {
+    //                     // do something with your data
+    //                     //console.log(data.articles);
+
+    //                     let article;
+    //                     let i;
+    //                     for (i = 0; i < data.articles.length; i++) {
+    //                         article = data.articles[i];
+    //                         //console.log(article);
+    //                         if (article.title && article.description && article.author && article.url && article.urlToImage) {
+    //                             break;
+    //                         }
+    //                     };
+    //                     console.log(article.title);
+
+    //                     this.setState({
+    //                         title: article.title,
+    //                         body: article.description,
+    //                         author: article.author,
+    //                         url: article.url,
+    //                         imgsrc: article.urlToImage
+    //                     });
+
+    //                 });
+
+    //             });
+
+    //         });
+    // }
 
 
 
+    componentDidMount() {
+        // an API call.
+        let self = this;
+        var queryUrl = 'https://newsapi.org/v2/top-headlines?' +
+            'q=corona&' +
+            'country=' + this.state.country + '&' +
+            'from=' + date + '&' +
+            'sortBy=popularity&' +
+            'apiKey=0d7e71ff7ddd480b83368a04bb626671';
+
+        // Powered by news API
+        // API key 0d7e71ff7ddd480b83368a04bb626671
+        var req = new Request(queryUrl);
 
 
-
-function News() {
-
-    const [title, setTitle] = useState();
-    const [body, setBody] = useState();
-    const [author, setAuthor] = useState();
-    const [url, setUrl] = useState();
-    const [imgsrc, setImgsrc] = useState();
-
-
-    const date = CurrentDate();
-
-    var queryUrl = 'https://newsapi.org/v2/top-headlines?' +
-        'q=corona&' +
-        'country=us&' +
-        'from=' + date + '&' +
-        'sortBy=popularity&' +
-        'apiKey=0d7e71ff7ddd480b83368a04bb626671';
-
-    // Powered by news API
-    // API key 0d7e71ff7ddd480b83368a04bb626671
-    var req = new Request(queryUrl);
-
-
-
-    useEffect(() => {
-        // For demonstration purposes, we mock an API call.
         fetch(req)
             .then(function (response) {
                 response.json().then(data => {
@@ -45,48 +96,47 @@ function News() {
                         article = data.articles[i];
                         //console.log(article);
                         if (article.title && article.description && article.author && article.url && article.urlToImage) {
-                             break;
+                            break;
                         }
-                    }
+                    };
+                    console.log(article.title);
 
+                    self.setState({
+                        title: article.title,
+                        body: article.description,
+                        author: article.author,
+                        url: article.url,
+                        imgsrc: article.urlToImage
+                    });
 
-                    setTitle(article.title);
-                    setBody(article.description);
-                    setAuthor(article.author);
-                    setUrl(article.url);
-                    setImgsrc(article.urlToImage);
                 });
+
             });
-        // API.getDeveloper.then((res) => {
-        //     setDeveloperState(res);
-        //     console.log("Developer State:");
-        //     console.log(developerState);
 
-    }, []);
+    };
 
+    render() {
+        return (
 
-    return (
-
-        <Card.Content style={{ width: "100%" }}>
-            <Header as='h2'> <a href={url}>{title}</a></Header>
-            <Image
-                src={imgsrc}
-                as='a'
-                size='medium'
-                href={url}
-                target='_blank'
-            />
-            <p>Body Text: {body}</p>
-            <br />
-            <p> Author: {author}</p>
-            <br />
-            <p>Powered by news API</p>
-        </Card.Content>
+            <Card.Content style={{ width: "100%" }}>
+                <Header as='h2'> <a href={this.state.url}>{this.state.title}</a></Header>
+                <Image
+                    src={this.state.imgsrc}
+                    as='a'
+                    size='medium'
+                    href={this.state.url}
+                    target='_blank'
+                />
+                <p>Body Text: {this.state.body}</p>
+                <br />
+                <p> Author: {this.state.author}</p>
+                <br />
+                <p>Powered by news API</p>
+            </Card.Content>
 
 
- 
-
-    )
+        )
+    }
 }
 
 
