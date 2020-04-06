@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Header, Statistic } from "semantic-ui-react";
 import CurrentDate from "../date";
+import Chart from "../pages/Chart";
 const axios = require("axios");
 
 const date = CurrentDate();
@@ -21,6 +22,7 @@ class CovidSearch extends Component {
       region: null,
       total_cases_per1m: "",
       record_date: "",
+      record_day: ""
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -84,7 +86,7 @@ class CovidSearch extends Component {
       },
     })
       .then((response) => {
-        //console.log(response.data);
+        console.log(response.data);
         const obj = response.data;
         const last = obj.stat_by_country.length - 1;
         const currentData = obj.stat_by_country[last];
@@ -105,6 +107,7 @@ class CovidSearch extends Component {
           region: currentData.region,
           total_cases_per1m: currentData.total_cases_per1m,
           record_date: convertedtime,
+          record_day: obj 
         });
       })
       .catch((error) => {
@@ -121,19 +124,19 @@ class CovidSearch extends Component {
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.total_cases}</Statistic.Value>
-            <Statistic.Label>Total Cases</Statistic.Label>
+            <Statistic.Label>Total cases</Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.new_cases}</Statistic.Value>
-            <Statistic.Label>New Cases</Statistic.Label>
+            <Statistic.Label>New cases today</Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.total_deaths}</Statistic.Value>
-            <Statistic.Label>Total Deaths</Statistic.Label>
+            <Statistic.Label>Total deaths</Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.new_deaths}</Statistic.Value>
-            <Statistic.Label>New Deaths</Statistic.Label>
+            <Statistic.Label>New deaths today</Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.record_date}</Statistic.Value>
@@ -146,6 +149,7 @@ class CovidSearch extends Component {
         <p>serious_critical: {this.state.serious_critical} </p>
         <p>region: {this.state.region} </p>
         <p>total_cases_per1m: {this.state.total_cases_per1m} </p> */}
+        <Chart/>
       </Container>
     );
   }

@@ -1,10 +1,10 @@
 import React from 'react';
 import CanvasJSReact from "../../chart/canvasjs.react";
-var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class Chart extends React.Component {	
     render() {
+      console.log(this.value);
       const options = {
         title: {
           text: "Basic Column Chart in React"

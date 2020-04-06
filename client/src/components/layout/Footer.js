@@ -11,27 +11,12 @@ import {
 export default function Footer() {
   return (
     <Container>
-      <Segment vertical style={{ margin: "5em 0em 0em", padding: "5em 0em" }}>
+      <Segment vertical style={{ marginBottom: 25}}>
         <Container textAlign="center">
-          <Grid divided stackable>
-            <Grid.Column width={3}>
-              <Header as="h4" content="react" />
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header as="h4" content="react" />
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Header as="h4" content="react" />
-            </Grid.Column>
-            <Grid.Column width={7}>
-              <Header as="h4" content="react" />
-              <p>React</p>
-            </Grid.Column>
-          </Grid>
 
-          <Divider section />
+          <Divider  />
           <List horizontal divided link size="small">
-            <List.Item as="a" href="" target="_">
+            <List.Item as="a" href="https://github.com/alpinelife37/Covid-Daily" target="_">
               COVID-Daily
             </List.Item>
             <List.Item>&copy; 2020</List.Item>
