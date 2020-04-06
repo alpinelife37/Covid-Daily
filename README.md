@@ -1,13 +1,28 @@
-# Covid Daily
+<h1 align="center">Covid Daily</h1>
+<p align="center">&copy; 2020</p>
+<p align="center">
+  <img width="200px" height="200px" src="/client/src/Covid19Logo.png">
+</p>
 
-2020
+<h4 strong align="center">Deployed Link</h4>
+<h3 href"https://blooming-tor-47379.herokuapp.com/" align="center">https://blooming-tor-47379.herokuapp.com/</h3>
 
-### DESCRIPTION
+________________________________________________________________________________________________________________________________________
 
-React based app that uses Passport authentication allows the user to create a MongoDb login, see current news & statistics of Covid-19, track their symptoms, & have access to related resources.
+<h1 align="center">Description</h1>
+
+React based app that uses Passport authentication allows the user to see current news & statistics of Covid-19, track their symptoms, & have access to related resources.
+________________________________________________________________________________________________________________________________________
+
+<h1 align="center">Example image</h1>
 
 ![Example profile](./client/public/exampleMain.png)
-[Deployed Link](https://blooming-tor-47379.herokuapp.com/)
+
+________________________________________________________________________________________________________________________________________
+
+
+<h1 align="center">Technologies</h1>
+
 
 ### BUILT WITH
 
