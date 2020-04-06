@@ -6,3 +6,7 @@
     position: fixed;
     width: 100%;
 }
+
+input {
+    background-color: #f3f3f3 !important;
+}
