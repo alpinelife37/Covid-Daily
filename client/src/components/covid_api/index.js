@@ -77,8 +77,7 @@ class CovidSearch extends Component {
   // }
 
   componentDidMount() {
-    const countryName = this.props.value || this.state.country_name
-    console.log(countryName);
+
     // an API call.
     axios({
       url:
@@ -93,7 +92,7 @@ class CovidSearch extends Component {
       },
     })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const obj = response.data;
         const last = obj.stat_by_country.length - 1;
         const currentData = obj.stat_by_country[last];

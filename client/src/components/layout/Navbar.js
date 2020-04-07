@@ -23,7 +23,7 @@ class Navbar extends Component {
         pointing
         secondary
       >
-        <Link inverted to="/dashboard">
+        <Link to="/dashboard">
           <Menu.Item
             as="span"
             name="Dashboard"
