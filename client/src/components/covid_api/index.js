@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Header, Statistic } from "semantic-ui-react";
+import { Container, Divider, Statistic } from "semantic-ui-react";
 import CurrentDate from "../date";
 import Chart from "../pages/Chart";
 const axios = require("axios");
@@ -145,6 +145,8 @@ class CovidSearch extends Component {
             <Statistic.Label>Last Updated</Statistic.Label>
           </Statistic>
         </Statistic.Group>
+        <Divider/>
+
 
         {/* <p>active_cases: {this.state.active_cases} </p>
         <p>total_recovered: {this.state.total_recovered} </p>
