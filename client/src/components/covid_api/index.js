@@ -26,6 +26,7 @@ class CovidSearch extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
+    console.log("nextProps", nextProps)
     this.setState({ country_name: nextProps.value }, () =>
       axios({
         url:
@@ -59,6 +60,7 @@ class CovidSearch extends Component {
             region: currentData.region,
             total_cases_per1m: currentData.total_cases_per1m,
             record_date: currentData.record_date,
+            record_day: obj
           });
         })
         .catch((error) => {
