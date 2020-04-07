@@ -26,7 +26,7 @@ class Dashboard extends Component {
       const { user } = this.props.auth;
 
       return (
-        <div id="symptomsBody" style={{ paddingTop: 25 }}>
+        <div id="componentBody" style={{ paddingTop: 25 }}>
           <Grid responsive textAlign="center">
             <Grid.Row>
               <Header
@@ -60,7 +60,7 @@ class Dashboard extends Component {
 
           <Grid columns={2} divided responsive="true" stackable>
             <Grid.Row>
-              <Grid.Column width={4} className="symptomcolumns">
+              <Grid.Column width={4} className="componentcolumns">
                 <Header style={{ marginTop: 5 }} color="orange" as="h2">
                   Latest News
               </Header>
@@ -70,7 +70,7 @@ class Dashboard extends Component {
                   />
                 </Card>
               </Grid.Column>
-              <Grid.Column className="symptomcolumns" id="recomendations">
+              <Grid.Column className="componentcolumns" id="recomendations">
                 <Header
                   style={{ marginTop: 5 }}
                   color="orange"

@@ -16,7 +16,6 @@ import Dashboard from "./components/pages/Dashboard";
 import SymptomTracker from "./components/pages/SymptomTracker";
 import Resources from "./components/pages/Resources";
 import Footer from "./components/layout/Footer";
-import NavTest from "./components/layout/navbar2";
 import "./App.css";
 
 // Check for token to keep user logged in

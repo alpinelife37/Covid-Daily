@@ -86,7 +86,7 @@ class SymptomTracker extends Component {
 
   render() {
     return (
-      <div id="symptomsBody" style={{ paddingTop: 25 }}>
+      <div id="componentBody" style={{ paddingTop: 25 }}>
         <Grid textAlign="center">
           <Grid.Row>
             <Header as="h1" style={{ marginLeft: 100, marginTop: 10, fontSize: 40 }}>
@@ -112,9 +112,9 @@ class SymptomTracker extends Component {
 
         <Grid columns={2} divided responsive="true" stackable>
           <Grid.Row>
-            <Grid.Column width={4} className="symptomcolumns">
+            <Grid.Column width={4} className="componentcolumns">
               <Header style={{ marginTop: 5, }} color="orange" as="h2">
-                COVID-19 realted symptoms:
+                COVID-19 realted symptoms
               </Header>
               <Header as="h4">
                 Mark your symptoms below
@@ -144,8 +144,8 @@ class SymptomTracker extends Component {
                 </Card.Content>
               </Card>
             </Grid.Column>
-            <Grid.Column className="symptomcolumns" id="recomendations">
-              <Header style={{ marginTop: 5 }} color="orange" textAlign="center" as="h2">Recomendations:</Header>
+            <Grid.Column className="componentcolumns" id="recomendations">
+              <Header style={{ marginTop: 5 }} color="orange" textAlign="center" as="h2">Recomendations</Header>
               <Recomendations severity={this.state.severitydb}/>
             </Grid.Column>
           </Grid.Row>
