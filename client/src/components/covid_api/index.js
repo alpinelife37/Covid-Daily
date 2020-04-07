@@ -46,6 +46,9 @@ class CovidSearch extends Component {
           const obj = response.data;
           const last = obj.stat_by_country.length - 1;
           const currentData = obj.stat_by_country[last];
+          const convertedtime = new Date(
+            currentData.record_date
+          ).toLocaleTimeString();
           //console.log(currentData);
           this.setState({
             id: currentData.id,
@@ -59,7 +62,7 @@ class CovidSearch extends Component {
             serious_critical: currentData.serious_critical,
             region: currentData.region,
             total_cases_per1m: currentData.total_cases_per1m,
-            record_date: currentData.record_date,
+            record_date: convertedtime,
             record_day: obj
           });
         })
@@ -74,6 +77,8 @@ class CovidSearch extends Component {
   // }
 
   componentDidMount() {
+    const countryName = this.props.value || this.state.country_name
+    console.log(countryName);
     // an API call.
     axios({
       url:

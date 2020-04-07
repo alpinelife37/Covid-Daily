@@ -1,7 +1,11 @@
 import React, { Component } from "react";
+//import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+//import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Card, Header, Image } from "semantic-ui-react";
 import CurrentDate from "../date";
 const axios = require("axios");
+
+
 
 
 const date = CurrentDate();
@@ -10,6 +14,7 @@ class News extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            filteredArticles: [],
             title: "",
             body: "",
             author: "",
@@ -22,7 +27,7 @@ class News extends Component {
     // componentWillReceiveProps(nextProps) {
     //     this.setState(
     //         { country: nextProps.value }, () =>{
-            
+
     //         var queryUrl = 'https://newsapi.org/v2/top-headlines?' +
     //         'q=corona&' +
     //         'country=' + this.state.country + '&' +
@@ -90,24 +95,34 @@ class News extends Component {
                     // do something with your data
                     //console.log(data.articles);
 
-                    let article;
-                    let i;
-                    for (i = 0; i < data.articles.length; i++) {
-                        article = data.articles[i];
-                        //console.log(article);
-                        if (article.title && article.description && article.author && article.url && article.urlToImage) {
-                            break;
-                        }
-                    };
-                    console.log(article.title);
+                    // let article;
+                    // let i;
+                    // for (i = 0; i < data.articles.length; i++) {
+                    //     article = data.articles[i];
+                    //     //console.log(article);
+                    //     if (article.title && article.description && article.author && article.url && article.urlToImage) {
+                    //         break;
+                    //     }
+                    // };
 
-                    self.setState({
-                        title: article.title,
-                        body: article.description,
-                        author: article.author,
-                        url: article.url,
-                        imgsrc: article.urlToImage
-                    });
+                    // console.log(article.title);
+
+                    // self.setState({
+                    //     title: article.title,
+                    //     body: article.description,
+                    //     author: article.author,
+                    //     url: article.url,
+                    //     imgsrc: article.urlToImage
+                    // });
+
+                    const filteredArticles = data.articles.filter(article => {
+                        return (
+                            article.title && article.description && article.author && article.url && article.urlToImage
+                        )
+                    })
+
+                    self.setState({ filteredArticles })
+
 
                 });
 
@@ -117,22 +132,29 @@ class News extends Component {
 
     render() {
         return (
+            <div>
+                {this.state.filteredArticles.slice(0,5).map(article => {
+                    return (
+                        <Card.Content style={{ width: "100%" }}>
+                            <Header as='h2'> <a href={article.url}>{article.title}</a></Header>
+                            <Image
+                                src={article.urlToImage}
+                                as='a'
+                                size='medium'
+                                href={article.url}
+                                target='_blank'
+                            />
+                            <p>Body Text: {article.description}</p>
+                            <br />
+                            <p> Author: {article.author}</p>
+                            <br />
+                            <p>Powered by news API</p>
+                        </Card.Content>
+                    )
+                })}
 
-            <Card.Content style={{ width: "100%" }}>
-                <Header as='h2'> <a href={this.state.url}>{this.state.title}</a></Header>
-                <Image
-                    src={this.state.imgsrc}
-                    as='a'
-                    size='medium'
-                    href={this.state.url}
-                    target='_blank'
-                />
-                <p>Body Text: {this.state.body}</p>
-                <br />
-                <p> Author: {this.state.author}</p>
-                <br />
-                <p>Powered by news API</p>
-            </Card.Content>
+
+            </div>
 
 
         )
