@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Header, Segment, Divider, Grid, Icon, Card } from "semantic-ui-react";
@@ -68,9 +70,24 @@ class Dashboard extends Component {
               </Header>
               <Card style={{ width: "auto" }}>
                 <News
-
                 />
               </Card>
+
+              
+              {/* <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={125}
+                totalSlides={3}
+              >
+                <Slider>
+                  <Slide index={0}>I am the first Slide.</Slide>
+                  <Slide index={1}>I am the second Slide.</Slide>
+                  <Slide index={2}>I am the third Slide.</Slide>
+                </Slider>
+                <ButtonBack>Back</ButtonBack>
+                <ButtonNext>Next</ButtonNext>
+              </CarouselProvider> */}
+
             </Grid.Column>
             <Grid.Column className="componentcolumns" id="recomendations">
 
