@@ -9,12 +9,12 @@ export default class Chart extends React.Component {
   componentWillReceiveProps(dayrecord) {
     this.state.data = [];
     const dayLog = dayrecord.dayrecord.stat_by_country;
-    console.log(dayLog[0].record_date);
+    // console.log(dayLog[0].record_date);
     dayLog.forEach((caseCount, i) => {
       this.state.data.push({ x: Number(i), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
     });
-    console.log(this.state.data);
-    console.log(dayrecord);
+    // console.log(this.state.data);
+    // console.log(dayrecord);
   }
 
   render() {

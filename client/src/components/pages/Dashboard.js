@@ -29,7 +29,7 @@ class Dashboard extends Component {
 
     return (
       <div id="componentBody" style={{ paddingTop: 25 }}>
-        <Grid responsive textAlign="center">
+        <Grid textAlign="center">
           <Grid.Row>
             <Header
               as="h1"
@@ -62,7 +62,7 @@ class Dashboard extends Component {
 
         <Divider />
 
-        <Grid columns={2} divided responsive="true" stackable>
+        <Grid columns={2} divided  stackable>
           <Grid.Row>
             <Grid.Column width={4} className="componentcolumns">
               <Header style={{ marginTop: 5 }} color="orange" as="h2">
@@ -72,22 +72,6 @@ class Dashboard extends Component {
                 <News
                 />
               </Card>
-
-              
-              {/* <CarouselProvider
-                naturalSlideWidth={100}
-                naturalSlideHeight={125}
-                totalSlides={3}
-              >
-                <Slider>
-                  <Slide index={0}>I am the first Slide.</Slide>
-                  <Slide index={1}>I am the second Slide.</Slide>
-                  <Slide index={2}>I am the third Slide.</Slide>
-                </Slider>
-                <ButtonBack>Back</ButtonBack>
-                <ButtonNext>Next</ButtonNext>
-              </CarouselProvider> */}
-
             </Grid.Column>
             <Grid.Column className="componentcolumns" id="recomendations">
 
