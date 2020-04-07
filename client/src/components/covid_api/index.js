@@ -125,29 +125,29 @@ class CovidSearch extends Component {
   render() {
     return (
       <Container text>
-        <Statistic.Group horizontal size="small">
+        <Statistic.Group horizontal size="small" style={{fontSize: 16}}>
           <Statistic>
             <Statistic.Value>{this.state.country_name}</Statistic.Value>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.total_cases}</Statistic.Value>
-            <Statistic.Label>Total cases</Statistic.Label>
+            <Statistic.Label><i>- Total Cases</i></Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.new_cases}</Statistic.Value>
-            <Statistic.Label>New cases today</Statistic.Label>
+            <Statistic.Label><i>- New Cases Today</i></Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.total_deaths}</Statistic.Value>
-            <Statistic.Label>Total deaths</Statistic.Label>
+            <Statistic.Label><i>- Total Deaths</i></Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.new_deaths}</Statistic.Value>
-            <Statistic.Label>New deaths today</Statistic.Label>
+            <Statistic.Label><i>- New Deaths Today</i></Statistic.Label>
           </Statistic>
           <Statistic>
             <Statistic.Value>{this.state.record_date}</Statistic.Value>
-            <Statistic.Label>Last Updated</Statistic.Label>
+            <Statistic.Label><i>- Last Updated</i></Statistic.Label>
           </Statistic>
         </Statistic.Group>
         <Divider/>

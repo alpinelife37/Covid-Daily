@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-//import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-//import 'pure-react-carousel/dist/react-carousel.es.css';
-import { Card, Header, Image } from "semantic-ui-react";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import { Card, Header, Image, Divider } from "semantic-ui-react";
 import CurrentDate from "../date";
 const axios = require("axios");
 
@@ -133,9 +133,9 @@ class News extends Component {
     render() {
         return (
             <div>
-                {this.state.filteredArticles.slice(0,5).map(article => {
+                {this.state.filteredArticles.slice(0, 5).map(article => {
                     return (
-                        <Card.Content style={{ width: "100%" }}>
+                        <Card.Content style={{ width: "100%", marginBottom: 20, border: "1px solid black", padding: 20 }}>
                             <Header as='h2'> <a href={article.url}>{article.title}</a></Header>
                             <Image
                                 src={article.urlToImage}
@@ -144,23 +144,18 @@ class News extends Component {
                                 href={article.url}
                                 target='_blank'
                             />
-                            <p>Body Text: {article.description}</p>
+                            <p>{article.description}</p>
                             <br />
-                            <p> Author: {article.author}</p>
+                            <i><p>Author: <b>{article.author}</b></p></i>
                             <br />
-                            <p>Powered by news API</p>
+                            <i><p>Powered by <b>News API</b></p></i> 
                         </Card.Content>
                     )
                 })}
-
-
             </div>
-
-
         )
     }
 }
-
 
 // API key 0d7e71ff7ddd480b83368a04bb626671
 
