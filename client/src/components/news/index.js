@@ -43,7 +43,7 @@ class News extends Component {
                 fetch(req).then(function (response) {
                     response.json().then((data) => {
 
-                        console.log(data);
+
                         const filteredArticles = data.articles.filter((article) => {
                             return (
                                 article.title &&
@@ -54,9 +54,8 @@ class News extends Component {
                             );
                         });
 
-                        console.log(filteredArticles);
-                        self.setState({ filteredArticles }, () =>
-                            console.log(self.state));
+
+                        self.setState({ filteredArticles });
                     });
                 });
 
@@ -95,11 +94,10 @@ class News extends Component {
                         article.urlToImage
                     );
                 });
-                
-                console.log(filteredArticles);
-                        self.setState({ filteredArticles }, () =>
-                            console.log(self.state));
-                //self.setState({ filteredArticles });
+
+
+                self.setState({ filteredArticles });
+
             });
         });
     }

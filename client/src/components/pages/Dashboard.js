@@ -40,7 +40,7 @@ class Dashboard extends Component {
   handleChange(event) {
     
     this.setState({ value: event.target.innerText});
-    this.setState({countrycode: this.convertCountry(event.target.innerText)})
+    this.setState({countrycode: this.convertCountry(event.target.innerText)});
     
   }
 
