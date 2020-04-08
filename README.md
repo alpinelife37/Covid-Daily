@@ -50,6 +50,7 @@ React based app that uses Passport authentication allows the user to see current
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Passport](https://www.npmjs.com/package/passport)
 - [Passport-Jwt](https://www.npmjs.com/package/passport-jwt)
+- [Pure-react-carousel](https://www.npmjs.com/package/pure-react-carousel)
 - [React](https://www.npmjs.com/package/react)
 - [React-Dom](https://www.npmjs.com/package/react-dom)
 - [React-Player](https://www.npmjs.com/package/react-player)
