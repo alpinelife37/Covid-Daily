@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -19,9 +18,13 @@ class Dashboard extends Component {
 
   }
   handleChange(event) {
-    event.preventDefault();
+
+    // event.preventDefault();
     this.setState({ value: event.target.innerText }, () =>
       console.log("Country Name: " + this.state.value));
+      
+      
+      
   }
 
   render() {
@@ -46,6 +49,7 @@ class Dashboard extends Component {
                     <DropdownCountrySearchSelection
                       selectHandler={this.handleChange}
                       value={this.state.value}
+                      
                     />
                   </Grid.Column>
                   <Grid.Column verticalAlign="middle" width={5}>
