@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -7,26 +6,47 @@ import { Header, Segment, Divider, Grid, Icon, Card } from "semantic-ui-react";
 import DropdownCountrySearchSelection from "../layout/Countrydropdown";
 import News from "../news";
 import CovidSearch from "../covid_api";
+import GetCountryCodes from "../countrycodes";
 // import Chart from "./Chart";
+
+const countryCodes = GetCountryCodes();
 
 class Dashboard extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { value: 'USA' };
+    this.state = {
+      value: 'USA',
+      countrycode: "us"
+    };
 
     this.handleChange = this.handleChange.bind(this);
 
   }
+
+  convertCountry(country) {
+    let twodigitcode = "USA";
+    for (const property in countryCodes) {
+      //console.log(`${property} = ${countryCodes[property]}`);
+      twodigitcode = `${countryCodes[property]}`;
+      if (`${property}` === country) {
+        break;
+      }
+    }
+    //console.log("Twodigit code:" + twodigitcode);
+    return twodigitcode;
+  }
+
   handleChange(event) {
-    event.preventDefault();
-    this.setState({ value: event.target.innerText }, () =>
-      console.log("Country Name: " + this.state.value));
+    
+    this.setState({ value: event.target.innerText});
+    this.setState({countrycode: this.convertCountry(event.target.innerText)})
+    
   }
 
   render() {
     const { user } = this.props.auth;
-
+    
     return (
       <div id="componentBody" style={{ paddingTop: 25 }}>
         <Grid textAlign="center">
@@ -46,6 +66,7 @@ class Dashboard extends Component {
                     <DropdownCountrySearchSelection
                       selectHandler={this.handleChange}
                       value={this.state.value}
+
                     />
                   </Grid.Column>
                   <Grid.Column verticalAlign="middle" width={5}>
@@ -62,7 +83,7 @@ class Dashboard extends Component {
 
         <Divider />
 
-        <Grid columns={2} divided  stackable>
+        <Grid columns={2} divided stackable>
           <Grid.Row>
             <Grid.Column width={4} className="componentcolumns">
               <Header style={{ marginTop: 5 }} color="orange" as="h2">
@@ -70,6 +91,7 @@ class Dashboard extends Component {
               </Header>
               <Card style={{ width: "auto" }}>
                 <News
+                country={this.state.countrycode}
                 />
               </Card>
             </Grid.Column>
