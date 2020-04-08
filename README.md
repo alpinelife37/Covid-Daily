@@ -7,22 +7,21 @@
 <h4 strong align="center">Deployed Link</h4>
 <h3 href"https://blooming-tor-47379.herokuapp.com/" align="center">https://blooming-tor-47379.herokuapp.com/</h3>
 
-________________________________________________________________________________________________________________________________________
+---
 
 <h1 align="center">Description</h1>
 
 React based app that uses Passport authentication allows the user to see current news & statistics of Covid-19, track their symptoms, & have access to related resources.
-________________________________________________________________________________________________________________________________________
 
-<h1 align="center">Example image</h1>
+---
+
+<h1 align="center">Example Images</h1>
 
 ![Example profile](./client/public/landing.png)
 
-________________________________________________________________________________________________________________________________________
-
+---
 
 <h1 align="center">Technologies</h1>
-
 
 ### BUILT WITH
 
@@ -51,6 +50,7 @@ ________________________________________________________________________________
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Passport](https://www.npmjs.com/package/passport)
 - [Passport-Jwt](https://www.npmjs.com/package/passport-jwt)
+- [Pure-react-carousel](https://www.npmjs.com/package/pure-react-carousel)
 - [React](https://www.npmjs.com/package/react)
 - [React-Dom](https://www.npmjs.com/package/react-dom)
 - [React-Player](https://www.npmjs.com/package/react-player)
