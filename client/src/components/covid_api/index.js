@@ -26,7 +26,7 @@ class CovidSearch extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    console.log("nextProps", nextProps)
+    //console.log("nextProps", nextProps)
     this.setState({ country_name: nextProps.value }, () =>
       axios({
         url:
