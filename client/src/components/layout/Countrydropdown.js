@@ -4,7 +4,7 @@ import GetCountries from "../countries";
 
 const countries = GetCountries();
 
-console.log(countries);
+
 
 const DropdownCountrySearchSelection = (props) => (
   <Dropdown
