@@ -113,7 +113,7 @@ class CovidSearch extends Component {
           region: currentData.region,
           total_cases_per1m: currentData.total_cases_per1m,
           record_date: convertedtime,
-          record_day: obj 
+          record_day: obj
         });
       })
       .catch((error) => {
@@ -123,33 +123,42 @@ class CovidSearch extends Component {
 
   render() {
     return (
-      <Container text>
-        <Statistic.Group horizontal size="small" style={{fontSize: 16}}>
-          <Statistic>
-            <Statistic.Value>{this.state.country_name}</Statistic.Value>
+      <Container text >
+        <Statistic.Group size="small" style={{ fontSize: 14 }} >
+          <Statistic style={{ width: "100%" }} >
+            <Statistic.Value >{this.state.country_name}</Statistic.Value>
+            <Divider />
           </Statistic>
-          <Statistic>
-            <Statistic.Value>{this.state.total_cases}</Statistic.Value>
-            <Statistic.Label><i>- Total Cases</i></Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>{this.state.new_cases}</Statistic.Value>
-            <Statistic.Label><i>- New Cases Today</i></Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>{this.state.total_deaths}</Statistic.Value>
-            <Statistic.Label><i>- Total Deaths</i></Statistic.Label>
-          </Statistic>
-          <Statistic>
-            <Statistic.Value>{this.state.new_deaths}</Statistic.Value>
-            <Statistic.Label><i>- New Deaths Today</i></Statistic.Label>
-          </Statistic>
-          <Statistic>
+          <div style={{width: "100%", textAlign: "center",}}>
+            <Statistic>
+              <Statistic.Value><strong>{this.state.total_cases}</strong></Statistic.Value>
+              <br/>
+              <Statistic.Label><i>Total Cases</i></Statistic.Label>
+            </Statistic>
+            <Statistic>
+              <Statistic.Value><strong>{this.state.new_cases}</strong></Statistic.Value>
+              <br/>
+              <Statistic.Label><i>New Cases Today</i></Statistic.Label>
+            </Statistic>
+            <Statistic>
+              <Statistic.Value><strong>{this.state.total_deaths}</strong></Statistic.Value>
+              <br/>
+              <Statistic.Label><i>Total Deaths</i></Statistic.Label>
+            </Statistic>
+            <Statistic>
+              <Statistic.Value><strong>{this.state.new_deaths}</strong></Statistic.Value>
+              <br/>
+              <Statistic.Label><i>New Deaths Today</i></Statistic.Label>
+            </Statistic>
+          </div>
+
+          {/* <Statistic>
             <Statistic.Value>{this.state.record_date}</Statistic.Value>
             <Statistic.Label><i>- Last Updated</i></Statistic.Label>
-          </Statistic>
+          </Statistic> */}
         </Statistic.Group>
-        <Divider/>
+        <Divider />
+        <br/>
 
 
         {/* <p>active_cases: {this.state.active_cases} </p>
@@ -157,7 +166,7 @@ class CovidSearch extends Component {
         <p>serious_critical: {this.state.serious_critical} </p>
         <p>region: {this.state.region} </p>
         <p>total_cases_per1m: {this.state.total_cases_per1m} </p> */}
-        <Chart dayrecord={this.state.record_day}/>
+        <Chart dayrecord={this.state.record_day} />
       </Container>
     );
   }

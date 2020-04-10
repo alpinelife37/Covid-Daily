@@ -21,10 +21,10 @@ export default class Chart extends React.Component {
     const options = {
       animationEnabled: true,
       title: {
-        text: "daily data",
+        text: "Daily Cases",
       },
       axisY: {
-        title: "Total deaths",
+        title: "Total Cases",
         includeZero: false,
       },
       data: [

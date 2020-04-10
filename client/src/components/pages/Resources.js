@@ -16,9 +16,10 @@ class Dashboard extends Component {
             style={{ height: "200px", width: "350px", borderRadius: "100%" }}
           />
         </Header>
-        <Divider />
+        <br/>
         <Links />
         <Divider />
+        <br/>
         <Container textAlign="center">
           <div style={{ display: "inline-block" }}>
             <ReactPlayer url="https://www.youtube.com/watch?v=BtN-goy9VOY" />

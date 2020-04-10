@@ -111,7 +111,7 @@ class SymptomTracker extends Component {
 
 
         <Grid columns={2} divided responsive="true" stackable>
-          <Grid.Row>
+          <Grid.Row style={{backgroundColor: "#F8F8FF"}}>
             <Grid.Column width={4} className="componentcolumns">
               <Header style={{ marginTop: 5, }} color="orange" as="h2">
                 COVID-19 realted symptoms
@@ -136,7 +136,7 @@ class SymptomTracker extends Component {
                     </ul>
                   </div>
                   <br/>
-                  <Button
+                  <Button color="blue"
                     type="submit"
                     content="Submit"
                     onClick={this.handleSubmit}
