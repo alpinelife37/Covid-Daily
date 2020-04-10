@@ -84,9 +84,9 @@ class Dashboard extends Component {
         <Divider />
 
         <Grid columns={2} divided stackable>
-          <Grid.Row>
+          <Grid.Row style={{backgroundColor: "#F8F8FF"}}>
             <Grid.Column width={4} className="componentcolumns">
-              <Header style={{ marginTop: 5 }} color="orange" as="h2">
+              <Header style={{ marginTop: 5 }} color="orange" as="h1">
                 Latest News
               </Header>
               <Card style={{ width: "auto" }}>
