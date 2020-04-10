@@ -95,9 +95,9 @@ class Dashboard extends Component {
                 />
               </Card>
             </Grid.Column>
-            <Grid.Column className="componentcolumns" id="recomendations">
+            <Grid.Column  className="componentcolumns" id="recomendations">
 
-              <CovidSearch
+              <CovidSearch 
                 value={this.state.value}
               />
             </Grid.Column>
