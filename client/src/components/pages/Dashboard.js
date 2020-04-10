@@ -84,9 +84,9 @@ class Dashboard extends Component {
         <Divider />
 
         <Grid columns={2} divided stackable>
-          <Grid.Row>
+          <Grid.Row style={{backgroundColor: "#F8F8FF"}}>
             <Grid.Column width={4} className="componentcolumns">
-              <Header style={{ marginTop: 5 }} color="orange" as="h2">
+              <Header style={{ marginTop: 5 }} color="orange" as="h1">
                 Latest News
               </Header>
               <Card style={{ width: "auto" }}>
@@ -95,9 +95,9 @@ class Dashboard extends Component {
                 />
               </Card>
             </Grid.Column>
-            <Grid.Column className="componentcolumns" id="recomendations">
+            <Grid.Column  className="componentcolumns" id="recomendations">
 
-              <CovidSearch
+              <CovidSearch 
                 value={this.state.value}
               />
             </Grid.Column>

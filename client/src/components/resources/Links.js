@@ -4,7 +4,7 @@ import { List, Header, Container, Grid, GridColumn } from "semantic-ui-react";
 function Links() {
   return (
     <Container>
-      <Grid columns={2} stackable relaxed='very'>
+      <Grid style={{backgroundColor: "#F8F8FF"}} columns={2} stackable relaxed='very'>
         <GridColumn>
           <Header as="h3">Government/Local</Header>
           <List>
