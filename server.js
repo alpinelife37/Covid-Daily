@@ -25,14 +25,11 @@ if (process.env.NODE_ENV === "production") {
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      //"mongodb://localhost/users",
       `mongodb://${process.env.name}:${process.env.pass}@ds113866.mlab.com:13866/heroku_g4m022wz`,
     { useNewUrlParser: true, useFindAndModify: false }
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch((err) => console.log(err));
-
-//`mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@ds241658.mlab.com:41658/test_db`;
 
 // Passport middleware
 app.use(passport.initialize());
