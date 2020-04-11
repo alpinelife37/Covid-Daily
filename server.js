@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
-
+require("dotenv").config();
 
 const users = require("./routes/api/users");
 
@@ -25,12 +25,14 @@ if (process.env.NODE_ENV === "production") {
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb://localhost/users",
-      // "mongodb://user:covid19@ds113866.mlab.com:13866/heroku_g4m022wz",
+      //"mongodb://localhost/users",
+      `mongodb://${process.env.name}:${process.env.pass}@ds113866.mlab.com:13866/heroku_g4m022wz`,
     { useNewUrlParser: true, useFindAndModify: false }
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch((err) => console.log(err));
+
+//`mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@ds241658.mlab.com:41658/test_db`;
 
 // Passport middleware
 app.use(passport.initialize());
@@ -42,7 +44,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use(require("./routes/api/symptoms"));
 
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 

@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-import { Container, Form, Button, Segment, Grid, Divider, Icon } from "semantic-ui-react";
+import {
+  Container,
+  Form,
+  Button,
+  Segment,
+  Grid,
+  Divider,
+  Icon,
+} from "semantic-ui-react";
 import "../pages/landing.css";
 
 class Register extends Component {
@@ -56,15 +64,20 @@ class Register extends Component {
 
     return (
       <div id="backgroundImg">
-        <Container style={{ marginTop: 100, opacity: 0.9, border: "2px solid black" }}>
+        <Container
+          style={{ marginTop: 100, opacity: 0.9, border: "2px solid black" }}
+        >
           <Segment>
             <Grid columns={2} stackable>
-              <Divider style={{ margin: 20 }} vertical>Or</Divider>
+              <Divider style={{ margin: 20 }} vertical>
+                Or
+              </Divider>
 
               <Grid.Row verticalAlign="middle">
-
                 <Grid.Column>
-                  <Link to="/"><Icon name="home"></Icon> Back to home</Link>
+                  <Link to="/">
+                    <Icon name="home"></Icon> Back to home
+                  </Link>
                   <div>
                     <h4 style={{ textAlign: "center", fontSize: 20 }}>
                       <b>Register Below</b>
@@ -96,7 +109,7 @@ class Register extends Component {
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
-                        spellcheck="false"
+                        spellCheck="false"
                         id="email"
                         type="email"
                         className={classnames("", {
@@ -137,7 +150,9 @@ class Register extends Component {
                       />
                       <span className="red-text">{errors.password2}</span>
                     </Form.Field>
-                    <Button primary type="submit">Submit</Button>
+                    <Button primary type="submit">
+                      Submit
+                    </Button>
                   </Form>
                 </Grid.Column>
                 <Grid.Column textAlign="center">
@@ -149,7 +164,6 @@ class Register extends Component {
                       <Button primary>Log In</Button>
                     </Link>
                   </p>
-
                 </Grid.Column>
               </Grid.Row>
             </Grid>

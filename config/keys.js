@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
-  secretOrKey: "secret"
+  secretOrKey: `${process.env.authKey}`,
 };
