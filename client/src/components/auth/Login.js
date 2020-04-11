@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-import { Container, Form, Button, Segment, Grid, Divider, Icon } from "semantic-ui-react";
+import {
+  Container,
+  Form,
+  Button,
+  Segment,
+  Grid,
+  Divider,
+  Icon,
+} from "semantic-ui-react";
 import "../pages/landing.css";
 
 class Login extends Component {
@@ -56,13 +64,19 @@ class Login extends Component {
 
     return (
       <div id="backgroundImg">
-        <Container style={{ marginTop: 100, opacity: 0.9, border: "2px solid black" }}>
+        <Container
+          style={{ marginTop: 100, opacity: 0.9, border: "2px solid black" }}
+        >
           <Segment>
             <Grid columns={2} stackable>
-              <Divider style={{margin: 20}} vertical>Or</Divider>
+              <Divider style={{ margin: 20 }} vertical>
+                Or
+              </Divider>
               <Grid.Row verticalAlign="middle">
                 <Grid.Column>
-                  <Link to="/"><Icon name="home"></Icon> Back to home</Link>
+                  <Link to="/">
+                    <Icon name="home"></Icon> Back to home
+                  </Link>
                   <h4 style={{ textAlign: "center", fontSize: 20 }}>
                     <b>Login Below</b>
                   </h4>
@@ -76,7 +90,7 @@ class Login extends Component {
                         onChange={this.onChange}
                         value={this.state.email}
                         error={errors.email}
-                        spellcheck="false"
+                        spellCheck="false"
                         id="email"
                         type="email"
                         className={classnames("", {
@@ -107,11 +121,16 @@ class Login extends Component {
                         {errors.passwordincorrect}
                       </span>
                     </Form.Field>
-                    <Button primary type="submit">Login</Button>
+                    <Button primary type="submit">
+                      Login
+                    </Button>
                   </Form>
                 </Grid.Column>
                 <Grid.Column textAlign="center">
-                  <p style={{ fontSize: 20, fontWeight: "bold" }} className="grey-text text-darken-1">
+                  <p
+                    style={{ fontSize: 20, fontWeight: "bold" }}
+                    className="grey-text text-darken-1"
+                  >
                     Don't have an account?
                     <br />
                     <br />
