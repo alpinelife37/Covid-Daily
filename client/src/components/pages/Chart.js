@@ -12,7 +12,7 @@ export default class Chart extends React.Component {
 	}
   state = {
     data: [],
-    countryname: "USA"
+    countryname: "USA",
   };
 
   // handleData() {
@@ -36,14 +36,12 @@ export default class Chart extends React.Component {
                 "country": this.state.countryname 
                 }
             }).then((response) => {
-              console.log(this.state.countryname)
               console.log(response)
               let resData = []
               response.data.stat_by_country.forEach((caseCount, i) => {
-                resData.push({ x: Number(i), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
+                resData.push({ x:new Date(caseCount.record_date), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
               });
               this.setState({data: resData});
-              console.log(this.state.data)
               this.chart.render();
             })
   };
@@ -53,12 +51,12 @@ export default class Chart extends React.Component {
     console.log(dayrecord);
     const dayLog = dayrecord.dayrecord.stat_by_country;
     const dataName = (dayLog[0].country_name);
-    // console.log(dayLog[0].country_name);
+    console.log(new Date(dayLog[0].record_date).toDateString());
     this.handleState(dataName);
     dayLog.forEach((caseCount, i) => {
-      this.state.data.push({ x: Number(i), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
+      this.state.data.push({ x: new Date(caseCount.record_date), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
     });
-    // console.log(this.state.data);
+    console.log(this.state.data);
     // console.log(dayrecord);
   }
 
@@ -68,6 +66,9 @@ export default class Chart extends React.Component {
       // title: {
       //   text: "Total Cases",
       // },
+      axisX:{      
+        valueFormatString: "" ,
+    },
       axisY: {
         title: "Total Cases",
         includeZero: false,
@@ -79,7 +80,6 @@ export default class Chart extends React.Component {
         },
       ],
     };
-    console.log(options.data)
     return (
       <div>
         <CanvasJSChart
