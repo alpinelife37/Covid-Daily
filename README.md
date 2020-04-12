@@ -41,6 +41,7 @@ React based app that uses Passport authentication allows the user to see current
 - [Body-Parser](https://www.npmjs.com/package/body-parser)
 - [Classnames](https://www.npmjs.com/package/classnames)
 - [Concurrently](https://www.npmjs.com/package/concurrently)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Express](https://www.npmjs.com/package/express)
 - [If-Env](https://www.npmjs.com/package/if-env)
 - [Is-Empty](https://www.npmjs.com/package/is-empty)
@@ -60,7 +61,6 @@ React based app that uses Passport authentication allows the user to see current
 - [Redux-Thunk](https://www.npmjs.com/package/redux-thunk)
 - [Semantic-Ui-React](https://www.npmjs.com/package/semantic-ui-react)
 - [Validator](https://www.npmjs.com/package/validator)
-- [Dotenv](https://www.npmjs.com/package/dotenv)
 
 ### ADDITIONAL BUILD RESOURCES
 
