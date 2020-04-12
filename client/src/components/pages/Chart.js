@@ -2,6 +2,7 @@ import React from "react";
 import CanvasJSReact from "../../chart/canvasjs.react";
 import axios from "axios";
 import { Button } from "semantic-ui-react";
+import MyMap from "../test";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class Chart extends React.Component {
@@ -23,8 +24,7 @@ export default class Chart extends React.Component {
   }
 
   getWeeklyData() {
-          this.setState({data: []})
-       
+          this.setState({data: []})       
             axios({
               url:
                 "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php",
@@ -38,13 +38,14 @@ export default class Chart extends React.Component {
             }).then((response) => {
               console.log(this.state.countryname)
               console.log(response)
+              let resData = []
               response.data.stat_by_country.forEach((caseCount, i) => {
-                this.state.data.push({ x: Number(i), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
-                console.log(this.state.data)
+                resData.push({ x: Number(i), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
               });
+              this.setState({data: resData});
+              console.log(this.state.data)
               this.chart.render();
             })
-
   };
 
   componentWillReceiveProps(dayrecord) {
@@ -88,8 +89,9 @@ export default class Chart extends React.Component {
         <Button
         content="Total History"
         onClick={()=> this.getWeeklyData()}
-        onRef={ref => this.chart = ref}
+        // onRef={ref => this.chart = ref}
         />
+        <MyMap />
       </div>
     );
   }

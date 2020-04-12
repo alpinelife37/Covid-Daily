@@ -5,6 +5,7 @@ import {
     Slide,
     ButtonBack,
     ButtonNext,
+    DotGroup
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Header, Image } from "semantic-ui-react";
@@ -109,7 +110,9 @@ class News extends Component {
                     naturalSlideWidth={100}
                     naturalSlideHeight={200}
                     totalSlides={5}
-                >
+                    infinite={true}
+                
+                >         
                     <Slider>
                         {this.state.filteredArticles.slice(0, 5).map((article, i) => {
                             return (
@@ -146,6 +149,7 @@ class News extends Component {
                             );
                         })}
                     </Slider>
+                    <DotGroup dotNumbers={true} style={{fontSize: "27px", margin: "50px"}} align="center" />
                     <div style={{ textAlign: "center" }}>
                         <ButtonBack className="primary" style={{ marginRight: 10, background: "#4169E1", color: "white" }}>Back</ButtonBack>
                         <ButtonNext style={{ background: "#4169E1", color: "white" }}>Next</ButtonNext>
