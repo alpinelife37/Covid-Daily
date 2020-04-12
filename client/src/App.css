@@ -81,3 +81,9 @@
     font-size: larger;
     line-height: 30px;
   }
+
+
+.leaflet-container {
+    height: 400px;
+    width: 800px;
+}
