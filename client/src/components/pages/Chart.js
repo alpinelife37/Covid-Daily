@@ -85,9 +85,15 @@ export default class Chart extends React.Component {
           options={options}
           onRef={ref => this.chart = ref}
         />
+        <br/>
         <Button
         content="Total History"
         onClick={()=> this.getWeeklyData()}
+        // onRef={ref => this.chart = ref}
+        />
+        <Button
+        content="Daily History"
+        onClick={()=> this.getDailyData()}
         // onRef={ref => this.chart = ref}
         />
       </div>

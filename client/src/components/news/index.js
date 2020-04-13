@@ -3,13 +3,14 @@ import {
     CarouselProvider,
     Slider,
     Slide,
-    ButtonBack,
-    ButtonNext,
+    // ButtonBack,
+    // ButtonNext,
     DotGroup
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { Header, Image } from "semantic-ui-react";
 import CurrentDate from "../date";
+import "./index.css";
 
 const date = CurrentDate();
 
@@ -111,14 +112,12 @@ class News extends Component {
                     naturalSlideHeight={200}
                     totalSlides={5}
                     infinite={true}
-                
                 >         
                     <Slider>
                         {this.state.filteredArticles.slice(0, 5).map((article, i) => {
                             return (
                                 <Slide key={i} index={i}>
                                     {" "}
-
                                     <Header as="h2">
                                         {" "}
                                         <a href={article.url}>{article.title}</a>
@@ -133,27 +132,18 @@ class News extends Component {
                                     <p>{article.description}</p>
                                     <br />
                                     <hr />
-                                    <i>
-                                        <p>
-                                            Author: <b>{article.author}</b>
-                                        </p>
-                                    </i>
+                                    <i><p>Author: <b>{article.author}</b></p></i>
                                     <br />
-                                    <i>
-                                        <p>
-                                            Powered by <b>News API</b>
-                                        </p>
-                                    </i>
-
+                                    <i><p>Powered by <b>News API</b></p></i>
                                 </Slide>
                             );
                         })}
                     </Slider>
-                    <DotGroup dotNumbers={true} style={{fontSize: "27px", margin: "50px"}} align="center" />
-                    <div style={{ textAlign: "center" }}>
+                    <DotGroup style={{fontSize: "20px", margin: "50px"}} align="center" />
+                    {/* <div style={{ textAlign: "center" }}>
                         <ButtonBack className="primary" style={{ marginRight: 10, background: "#4169E1", color: "white" }}>Back</ButtonBack>
                         <ButtonNext style={{ background: "#4169E1", color: "white" }}>Next</ButtonNext>
-                    </div>
+                    </div> */}
                 </CarouselProvider>
             </div>
         );
