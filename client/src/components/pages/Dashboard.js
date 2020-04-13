@@ -7,6 +7,7 @@ import DropdownCountrySearchSelection from "../layout/Countrydropdown";
 import News from "../news";
 import CovidSearch from "../covid_api";
 import GetCountryCodes from "../countrycodes";
+import MyMap from "../test";
 // import Chart from "./Chart";
 
 const countryCodes = GetCountryCodes();
@@ -100,6 +101,14 @@ class Dashboard extends Component {
               <CovidSearch 
                 value={this.state.value}
               />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column>
+              <Header as="h1" textAlign="center" content="World Data"/>
+              <MyMap />
             </Grid.Column>
           </Grid.Row>
         </Grid>
