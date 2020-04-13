@@ -52,6 +52,8 @@ class GeoJsonMap extends React.Component {
     });
   }
 
+  
+
 
   render() {
     const { geodata } = this.state;
@@ -94,6 +96,7 @@ class GeoJsonMap extends React.Component {
           id="map"
           center={[38.25, -17.75]}
           zoom={3}
+          
         >
           <TileLayer
             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
