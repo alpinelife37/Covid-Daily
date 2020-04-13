@@ -30,7 +30,7 @@ class GeoJsonMap extends React.Component {
     if (!geodata) {
       return (
         <Segment style={{height: 200}}>
-          <Dimmer active>
+          <Dimmer active inverted>
             <Loader size="massive">Loading</Loader>
           </Dimmer>
         </Segment>

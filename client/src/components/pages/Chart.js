@@ -1,28 +1,24 @@
 import React from "react";
 import CanvasJSReact from "../../chart/canvasjs.react";
 import axios from "axios";
-import { Button } from "semantic-ui-react";
+import { Button, Segment, Dimmer, Loader } from "semantic-ui-react";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class Chart extends React.Component {
   constructor() {
 		super();
-		this.getWeeklyData = this.getWeeklyData.bind(this);
+		this.getTotalData = this.getTotalData.bind(this);
 	}
   state = {
-    data: [],
+    data: null,
     countryname: "USA",
   };
-
-  // handleData() {
-  //   this.setState({data: name})
-  // };
 
   handleState(name) {
     this.setState({countryname: name})
   }
 
-  getWeeklyData() {
+  getTotalData() {
           this.setState({data: []})       
             axios({
               url:
@@ -45,6 +41,16 @@ export default class Chart extends React.Component {
             })
   };
 
+  getDailyData() {
+    this.state.data = [];
+    const dayLog = this.props.dayrecord.stat_by_country;
+    const dataName = (dayLog[0].country_name);
+    this.handleState(dataName);
+    dayLog.forEach((caseCount, i) => {
+      this.state.data.push({ x: new Date(caseCount.record_date), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
+    });
+  }
+
   componentWillReceiveProps(dayrecord) {
     this.state.data = [];
     console.log(dayrecord);
@@ -62,9 +68,6 @@ export default class Chart extends React.Component {
   render() {
     const options = {
       animationEnabled: true,
-      // title: {
-      //   text: "Total Cases",
-      // },
       axisX:{      
         valueFormatString: "" ,
     },
@@ -79,6 +82,15 @@ export default class Chart extends React.Component {
         },
       ],
     };
+    if (!this.state.data) {
+      return (
+        <Segment style={{height: 200}}>
+          <Dimmer active inverted>
+            <Loader size="massive">Loading</Loader>
+          </Dimmer>
+        </Segment>
+      );
+    }
     return (
       <div>
         <CanvasJSChart
@@ -88,7 +100,7 @@ export default class Chart extends React.Component {
         <br/>
         <Button
         content="Total History"
-        onClick={()=> this.getWeeklyData()}
+        onClick={()=> this.getTotalData()}
         // onRef={ref => this.chart = ref}
         />
         <Button
