@@ -2,7 +2,6 @@ import React from "react";
 import CanvasJSReact from "../../chart/canvasjs.react";
 import axios from "axios";
 import { Button } from "semantic-ui-react";
-import MyMap from "../test";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class Chart extends React.Component {
@@ -39,7 +38,7 @@ export default class Chart extends React.Component {
               console.log(response)
               let resData = []
               response.data.stat_by_country.forEach((caseCount, i) => {
-                resData.push({ x:new Date(caseCount.record_date), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
+                resData.push({ x: new Date(caseCount.record_date), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
               });
               this.setState({data: resData});
               this.chart.render();
@@ -91,7 +90,6 @@ export default class Chart extends React.Component {
         onClick={()=> this.getWeeklyData()}
         // onRef={ref => this.chart = ref}
         />
-        <MyMap />
       </div>
     );
   }
