@@ -104,6 +104,16 @@ class News extends Component {
         });
     }
 
+    generateTitle = (title) => {
+        if(title.length >= 106) {
+          return title.slice(0, 105) + "..."
+        }
+        else {
+            return title;
+        }
+    }
+
+        
     render() {
         return (
             <div>
@@ -120,7 +130,7 @@ class News extends Component {
                                     {" "}
                                     <Header as="h2">
                                         {" "}
-                                        <a href={article.url}>{article.title}</a>
+                                        <a href={article.url}>{this.generateTitle(article.title)}</a>
                                     </Header>
                                     <Image
                                         src={article.urlToImage}
