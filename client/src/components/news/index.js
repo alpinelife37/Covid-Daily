@@ -8,7 +8,7 @@ import {
     DotGroup
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { Header, Image, Button } from "semantic-ui-react";
+import { Header, Image, Button, Card } from "semantic-ui-react";
 import CurrentDate from "../date";
 import "./index.css";
 
@@ -119,10 +119,12 @@ class News extends Component {
             <div>
                 <CarouselProvider 
                     naturalSlideWidth={100}
-                    naturalSlideHeight={140}
+                    naturalSlideHeight={155}
                     totalSlides={5}
                     infinite={true}
                 >         
+                    <Card style={{ padding: 20, width: 600 }}>
+
                     <Slider>
                         {this.state.filteredArticles.slice(0, 5).map((article, i) => {
                             return (
@@ -148,6 +150,7 @@ class News extends Component {
                             );
                         })}
                     </Slider>
+                    </Card>
                     <DotGroup align="center" />
                     {/* <div style={{ textAlign: "center" }}>
                         <ButtonBack className="primary" style={{ marginRight: 10, background: "#4169E1", color: "white" }}>Back</ButtonBack>

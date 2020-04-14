@@ -90,11 +90,11 @@ class Dashboard extends Component {
               <Header style={{ marginTop: 5 }} color="orange" as="h1">
                 Latest News
               </Header>
-              <Card style={{ padding: 10, width: 550 }}>
+              {/* <Card style={{ padding: 10, width: 550 }}> */}
                 <News
                 country={this.state.countrycode}
                 />
-              </Card>
+              {/* </Card> */}
             </Grid.Column>
             <Grid.Column  className="componentcolumns" id="recomendations">
 
