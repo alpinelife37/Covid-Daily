@@ -8,7 +8,7 @@ import {
     DotGroup
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { Header, Image } from "semantic-ui-react";
+import { Header, Image, Button } from "semantic-ui-react";
 import CurrentDate from "../date";
 import "./index.css";
 
@@ -139,7 +139,7 @@ class News extends Component {
                             );
                         })}
                     </Slider>
-                    <DotGroup style={{fontSize: "20px", margin: "50px"}} align="center" />
+                    <DotGroup align="center" />
                     {/* <div style={{ textAlign: "center" }}>
                         <ButtonBack className="primary" style={{ marginRight: 10, background: "#4169E1", color: "white" }}>Back</ButtonBack>
                         <ButtonNext style={{ background: "#4169E1", color: "white" }}>Next</ButtonNext>
