@@ -90,7 +90,7 @@ class Dashboard extends Component {
               <Header style={{ marginTop: 5 }} color="orange" as="h1">
                 Latest News
               </Header>
-              <Card style={{ width: "auto" }}>
+              <Card style={{ padding: 10, width: 550 }}>
                 <News
                 country={this.state.countrycode}
                 />
