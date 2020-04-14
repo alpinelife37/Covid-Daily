@@ -51,15 +51,26 @@ export default class Chart extends React.Component {
     });
   }
 
+  adjustForTimezone(date){
+    var timeOffsetInMS = date.getTimezoneOffset() * 60000;
+    date.setTime(date.getTime() - timeOffsetInMS);
+    return date
+}
+
   componentWillReceiveProps(dayrecord) {
     this.state.data = [];
     console.log(dayrecord);
     const dayLog = dayrecord.dayrecord.stat_by_country;
     const dataName = (dayLog[0].country_name);
     console.log(new Date(dayLog[0].record_date).toDateString());
+    console.log(new Date(dayLog[0].record_date).getTimezoneOffset());
+    
     this.handleState(dataName);
     dayLog.forEach((caseCount, i) => {
-      this.state.data.push({ x: new Date(caseCount.record_date), y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
+
+      const currentDate = this.adjustForTimezone(new Date(caseCount.record_date))
+
+      this.state.data.push({ x: currentDate, y: parseInt(caseCount.total_cases.replace(/,/g, ''))});
     });
     console.log(this.state.data);
     // console.log(dayrecord);
