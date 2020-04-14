@@ -62,7 +62,7 @@ class Dashboard extends Component {
               <Segment style={{ minWidth: 300 }}>
                 <Grid>
                   <Header style={{ paddingTop: 22 }}>Select a Country: </Header>
-                  <Grid.Column style={{ paddingLeft: 0 }} width={5} floated="left">
+                  <Grid.Column style={{ paddingLeft: 0}} width={5} floated="left">
 
                     <DropdownCountrySearchSelection
                       selectHandler={this.handleChange}
