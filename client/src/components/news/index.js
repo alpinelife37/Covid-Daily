@@ -8,7 +8,7 @@ import {
     DotGroup
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { Header, Image } from "semantic-ui-react";
+import { Header, Image, Button } from "semantic-ui-react";
 import CurrentDate from "../date";
 import "./index.css";
 
@@ -117,9 +117,9 @@ class News extends Component {
     render() {
         return (
             <div>
-                <CarouselProvider style={{ width: "100%", border: "1px solid gray", padding: 20 }}
+                <CarouselProvider 
                     naturalSlideWidth={100}
-                    naturalSlideHeight={200}
+                    naturalSlideHeight={140}
                     totalSlides={5}
                     infinite={true}
                 >         
@@ -128,11 +128,12 @@ class News extends Component {
                             return (
                                 <Slide key={i} index={i}>
                                     {" "}
-                                    <Header as="h2">
+                                    <Header responsive as="h4">
                                         {" "}
                                         <a href={article.url}>{this.generateTitle(article.title)}</a>
                                     </Header>
                                     <Image
+                                    style={{marginBottom: 8}}
                                         src={article.urlToImage}
                                         as="a"
                                         size="medium"
@@ -140,16 +141,14 @@ class News extends Component {
                                         target="_blank"
                                     />
                                     <p>{article.description}</p>
-                                    <br />
                                     <hr />
                                     <i><p>Author: <b>{article.author}</b></p></i>
-                                    <br />
                                     <i><p>Powered by <b>News API</b></p></i>
                                 </Slide>
                             );
                         })}
                     </Slider>
-                    <DotGroup style={{fontSize: "20px", margin: "50px"}} align="center" />
+                    <DotGroup align="center" />
                     {/* <div style={{ textAlign: "center" }}>
                         <ButtonBack className="primary" style={{ marginRight: 10, background: "#4169E1", color: "white" }}>Back</ButtonBack>
                         <ButtonNext style={{ background: "#4169E1", color: "white" }}>Next</ButtonNext>
