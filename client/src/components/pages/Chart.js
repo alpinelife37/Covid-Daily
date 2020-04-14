@@ -92,7 +92,7 @@ export default class Chart extends React.Component {
       );
     }
     return (
-      <div>
+      <div style={{textAlign: "center"}}>
         <CanvasJSChart
           options={options}
           onRef={ref => this.chart = ref}

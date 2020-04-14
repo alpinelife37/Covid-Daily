@@ -25,10 +25,10 @@ class GeoJsonMap extends React.Component {
   }
 
   handleSubmit() {
-    
-}
+
+  }
   getGeoMap = e => {
-    switch(e.target.name) {
+    switch (e.target.name) {
       case "usa":
         this.state.geourl = "https://covid19-data.p.rapidapi.com/geojson-us"
         break;
@@ -52,7 +52,7 @@ class GeoJsonMap extends React.Component {
     });
   }
 
-  
+
 
 
   render() {
@@ -85,21 +85,23 @@ class GeoJsonMap extends React.Component {
       </Marker>
     ));
     return (
-      <div>
-   <Button.Group widths='2'>
-      <Button name="worldmap" onClick={this.getGeoMap}>World Map</Button>
-      <Button.Or />
-      <Button name="usa" onClick={this.getGeoMap}>United States</Button>
-    </Button.Group>
+      <div style={{textAlign: "center"}}>
+        <Button.Group widths='2' style={{width: "75%"}}>
+          <Button style={{fontSize: "20px"}} name="worldmap" onClick={this.getGeoMap}>World Map</Button>
+          <Button.Or />
+          <Button style={{fontSize: "20px"}} name="usa" onClick={this.getGeoMap}>United States </Button>
+        </Button.Group>
         <Map
           stlye={{ height: 100, width: 100 }}
           id="map"
-          center={[38.25, -17.75]}
-          zoom={3}
-          
+          center={[38.25, -2.75]}
+          zoom={1.2}
+          minZoom={2}
+          scrollWheelZoom={false}
         >
           <TileLayer
             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
+            noWrap="true"
             attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
           />
           {LeafletMarkers}

@@ -104,6 +104,9 @@ class Dashboard extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        <br/>
+        <br/>
+        <Divider/>
         <Grid>
           <Grid.Row>
             <Grid.Column>
