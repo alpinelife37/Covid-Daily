@@ -114,7 +114,7 @@ class SymptomTracker extends Component {
           <Grid.Row style={{backgroundColor: "#F8F8FF"}}>
             <Grid.Column width={4} className="componentcolumns">
               <Header style={{ marginTop: 5, }} color="orange" as="h2">
-                COVID-19 realted symptoms
+                COVID-19 related symptoms
               </Header>
               <Header as="h4">
                 Mark your symptoms below
