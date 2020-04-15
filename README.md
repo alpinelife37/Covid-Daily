@@ -61,6 +61,8 @@ React based app that uses Passport authentication allows the user to see current
 - [Redux-Thunk](https://www.npmjs.com/package/redux-thunk)
 - [Semantic-Ui-React](https://www.npmjs.com/package/semantic-ui-react)
 - [Validator](https://www.npmjs.com/package/validator)
+- [Leafletjs](https://leafletjs.com/)
+- [Geojson](https://leafletjs.com/examples/geojson/)
 
 ### ADDITIONAL BUILD RESOURCES
 
