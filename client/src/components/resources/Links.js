@@ -4,7 +4,12 @@ import { List, Header, Container, Grid, GridColumn } from "semantic-ui-react";
 function Links() {
   return (
     <Container>
-      <Grid style={{backgroundColor: "#F8F8FF"}} columns={2} stackable relaxed='very'>
+      <Grid
+        style={{ backgroundColor: "#F8F8FF" }}
+        columns={2}
+        stackable
+        relaxed="very"
+      >
         <GridColumn>
           <Header as="h3">Government/Local</Header>
           <List>
@@ -13,7 +18,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">
                   CDC
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -21,7 +26,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.who.int/gpsc/clean_hands_protection/en/">
                   World Health Organization--Proper Handwashing
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -29,13 +34,15 @@ function Links() {
               <List.Content>
                 <a href="https://coronavirus.jhu.edu/map.html">
                   John Hopkins Coronavirus World Map
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
               <List.Icon name="linkify" />
               <List.Content>
-                <a href="http://www.ushospitalfinder.com/">USA Hospital Finder</a>
+                <a href="http://www.ushospitalfinder.com/">
+                  USA Hospital Finder
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -49,7 +56,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.trucking.org/COVID19">
                   America Trucker Assocation
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -57,7 +64,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.dol.gov/coronavirus">
                   U.S. Department of Labor
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -65,7 +72,7 @@ function Links() {
               <List.Content>
                 <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html/">
                   U.S. Department of State Travel Advisories
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -73,7 +80,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.fns.usda.gov/disaster/pandemic/covid-19">
                   USDA SNAP response to Covid-19
-            </a>
+                </a>
               </List.Content>
             </List.Item>
           </List>
@@ -111,6 +118,12 @@ function Links() {
             <List.Item>
               <List.Icon name="linkify" />
               <List.Content>
+                <a href="https://zoom.us/">Zoom</a>
+              </List.Content>
+            </List.Item>
+            <List.Item>
+              <List.Icon name="linkify" />
+              <List.Content>
                 <a href="https://slack.com/">Slack</a>
               </List.Content>
             </List.Item>
@@ -125,7 +138,7 @@ function Links() {
               <List.Content>
                 <a href="https://support.apple.com/en-ca/HT204380">
                   Facetime (Apple users)
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -133,7 +146,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.xfinity.com/prepare">
                   Comcast internet options
-            </a>
+                </a>
               </List.Content>
             </List.Item>
           </List>
@@ -144,7 +157,7 @@ function Links() {
               <List.Content>
                 <a href="https://classroommagazines.scholastic.com/support/learnathome.html">
                   Scholastic Learning
-            </a>
+                </a>
               </List.Content>
             </List.Item>
             <List.Item>
@@ -170,7 +183,7 @@ function Links() {
               <List.Content>
                 <a href="https://www.youtube.com/channel/UCYyJUEtYv-ZW7BgjhP3UbTg?reload=9">
                   Virtual Disney Rides
-            </a>
+                </a>
               </List.Content>
             </List.Item>
           </List>
