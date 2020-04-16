@@ -28,19 +28,17 @@ class CovidSearch extends Component {
   componentWillReceiveProps(nextProps) {
     //console.log("nextProps", nextProps)
     this.setState({ country_name: nextProps.value }, () =>
-      axios({
-        url:
-          "https://coronavirus-monitor.p.rapidapi.com/coronavirus/history_by_particular_country_by_date.php?country=" +
-          this.state.country_name +
-          "&date=" +
-          date,
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-          "x-rapidapi-key":
-            "2053485844mshcfbaee287004834p147101jsnc9bd5f5866a2",
-        },
-      })
+    axios({
+      url:
+        "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php",
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
+        "x-rapidapi-key": "1e604574f3msh5f2b072afbe3555p1f4ebajsn89dc88914d1d",
+      },"params":{
+        "country": this.state.country_name 
+        }
+    })
         .then((response) => {
           console.log(response.data);
           const obj = response.data;
@@ -81,15 +79,14 @@ class CovidSearch extends Component {
     // an API call.
     axios({
       url:
-        "https://coronavirus-monitor.p.rapidapi.com/coronavirus/history_by_particular_country_by_date.php?country=" +
-        this.state.country_name +
-        "&date=" +
-        date,
+        "https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php",
       method: "GET",
       headers: {
         "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-        "x-rapidapi-key": "2053485844mshcfbaee287004834p147101jsnc9bd5f5866a2",
-      },
+        "x-rapidapi-key": "1e604574f3msh5f2b072afbe3555p1f4ebajsn89dc88914d1d",
+      },"params":{
+        "country": this.state.country_name 
+        }
     })
       .then((response) => {
         // console.log(response.data);
