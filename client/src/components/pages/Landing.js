@@ -10,11 +10,10 @@ import {
   Icon,
   Button,
   Divider,
-  Container
+  Container,
 } from "semantic-ui-react";
 
 class Landing extends Component {
-
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
@@ -25,12 +24,12 @@ class Landing extends Component {
     return (
       <div id="backgroundImg">
         <Container style={{ marginTop: 100, opacity: 0.9 }}>
-          <Segment textAlign="center" >
+          <Segment textAlign="center">
             <Header as="h1" content="Covid Daily" />
             <Header as="h3">
-              An app for people under quarantine to track sypmtoms as well as
+              An app for people under quarantine to track symptoms as well as
               access to Covid-19 resources.
-          </Header>
+            </Header>
           </Segment>
           <Segment placeholder>
             <Grid columns={2} stackable textAlign="center">
@@ -62,9 +61,9 @@ class Landing extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 });
 
 export default connect(mapStateToProps)(withRouter(Landing));
