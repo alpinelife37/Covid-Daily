@@ -101,7 +101,7 @@ class GeoJsonMap extends React.Component {
         >
           <TileLayer
             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
-            noWrap="true"
+            noWrap={true}
             attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
           />
           {LeafletMarkers}

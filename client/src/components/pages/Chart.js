@@ -109,7 +109,7 @@ export default class Chart extends React.Component {
           onRef={ref => this.chart = ref}
         />
         <br/>
-        <Button
+        {/* <Button
         content="Total History"
         onClick={()=> this.getTotalData()}
         // onRef={ref => this.chart = ref}
@@ -118,7 +118,7 @@ export default class Chart extends React.Component {
         content="Daily History"
         onClick={()=> this.getDailyData()}
         // onRef={ref => this.chart = ref}
-        />
+        /> */}
       </div>
     );
   }
