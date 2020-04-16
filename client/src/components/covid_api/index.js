@@ -132,21 +132,21 @@ class CovidSearch extends Component {
               <br/>
               <Statistic.Label><i>Total Cases</i></Statistic.Label>
             </Statistic>
-            <Statistic>
+            {/* <Statistic>
               <Statistic.Value><strong>{this.state.new_cases}</strong></Statistic.Value>
               <br/>
               <Statistic.Label><i>New Cases Today</i></Statistic.Label>
-            </Statistic>
+            </Statistic> */}
             <Statistic>
               <Statistic.Value><strong>{this.state.total_deaths}</strong></Statistic.Value>
               <br/>
               <Statistic.Label><i>Total Deaths</i></Statistic.Label>
             </Statistic>
-            <Statistic>
+            {/* <Statistic>
               <Statistic.Value><strong>{this.state.new_deaths}</strong></Statistic.Value>
               <br/>
               <Statistic.Label><i>New Deaths Today</i></Statistic.Label>
-            </Statistic>
+            </Statistic> */}
           </div>
 
           {/* <Statistic>
